@@ -9,6 +9,11 @@ module.exports = {
   plugins: [
     'html'
   ],
+  // make window available
+  "env": {
+    "browser": true,
+    "node": true
+  },
   // check if imports actually resolve
   'settings': {
     'import/resolver': {
@@ -24,6 +29,7 @@ module.exports = {
       'js': 'never',
       'vue': 'never'
     }],
+    'no-param-reassign': ["error", { "props": false }],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     "no-console":0

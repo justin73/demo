@@ -6,9 +6,6 @@
     <router-link :to="{ path: 'services', query: { plan: 'private' }}">{{ $t("nav.services") }}</router-link>
     <router-link to="/clubs">{{ $t("nav.clubs") }}</router-link>
     <router-link to="/feeds">{{ $t("nav.feeds") }}</router-link>
-
-<!--     <hello></hello>
-    <listContianer></listContianer> -->
   </div>
 </template>
 

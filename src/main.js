@@ -4,11 +4,10 @@ import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
 import VueI18n from 'vue-i18n';
 import Vue from 'vue';
-// import App from './App';
-
-
+import Vuex from 'vuex';
 // Global Components
 import Sidebar from './components/sideNav';
+
 // import PageContent from './components/page_content';
 
 // Middleware
@@ -16,17 +15,20 @@ import Sidebar from './components/sideNav';
 Vue.use(VueI18n);
 Vue.use(VueRouter);
 Vue.use(VueResource);
-
+Vue.use(Vuex);
 // i18n init
 require('./locale/config');
 
 
 const router = require('./routes/router');
-
+// import store object and inject it into the vue global scope
+// then it could be used in all the child components
+const store = require('./store/store').default;  // .default to fix count missing, mutation not defined issue
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   template: `
   <div>
     <div class='sidebar_container'>
