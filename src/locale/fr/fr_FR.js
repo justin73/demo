@@ -1,5 +1,6 @@
 const frFR = {
   nav: {
+    domain: 'Reve',
     index: 'Index -fr',
     dashboard: 'Dashboard -fr',
     services: 'Services  -fr',

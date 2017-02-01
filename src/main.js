@@ -7,7 +7,6 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 // Global Components
 import Sidebar from './components/sideNav';
-
 // import PageContent from './components/page_content';
 
 // Middleware
@@ -31,10 +30,11 @@ new Vue({
   store,
   template: `
   <div>
-    <div class='sidebar_container'>
+    <div class='sidebar_container' style="width: 100%;top: 0px;z-index: 100;position: fixed">
       <sidebar></sidebar>
     </div>
-    <div class="content_container">
+    <div class="content_container" style="margin-top: 50px;position: relative; top: 108px;
+    z-index: 1;">
       <router-view></router-view>
     </div>
   </div>

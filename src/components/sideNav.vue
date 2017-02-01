@@ -1,14 +1,17 @@
 <template>
-  <div id="app">
-    <router-link to="/">{{ $t("nav.index") }}</router-link>
-    <router-link to="/dashboard">{{ $t("nav.dashboard") }}</router-link>
-    <router-link to="/events">{{ $t("nav.events") }}</router-link>
-    <router-link :to="{ path: 'services', query: { plan: 'private' }}">{{ $t("nav.services") }}</router-link>
-    <router-link to="/clubs">{{ $t("nav.clubs") }}</router-link>
-    <router-link to="/feeds">{{ $t("nav.feeds") }}</router-link>
+  <div class="sidenav_container">
+    <div class="domain_wrapper">
+      <router-link class="domain_section" to="/" exact>{{ $t("nav.domain") }}</router-link>
+    </div><div class="nav_wrapper">
+      <!-- <router-link class="nav_section" to="/" exact>{{ $t("nav.index") }}</router-link> -->
+      <router-link class="nav_section" to="/dashboard" exact>{{ $t("nav.photography") }}</router-link>
+      <router-link class="nav_section" to="/events" exact>{{ $t("nav.projects") }}</router-link>
+      <!-- <router-link class="nav_section" :to="{ path: 'services', query: { plan: 'private' }}" exact>{{ $t("nav.services") }}</router-link>
+      <router-link class="nav_section" to="/clubs" exact>{{ $t("nav.clubs") }}</router-link>
+      <router-link class="nav_section" to="/feeds" exact>{{ $t("nav.feeds") }}</router-link> -->
+    </div>
   </div>
 </template>
-
 
 <script>
   export default {
@@ -16,13 +19,7 @@
   };
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass" scoped>
+  @import '../sass/sideNav.scss';
 </style>
+ 

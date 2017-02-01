@@ -12,7 +12,8 @@ module.exports = {
   // make window available
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jquery": true
   },
   // check if imports actually resolve
   'settings': {

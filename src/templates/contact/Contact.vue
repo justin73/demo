@@ -1,11 +1,31 @@
 
 <template>
-  <div v-if="loading">
+  <div v-if="loading" ref="loading">
     <loader></loader>
   </div>
   <div class="list_container" v-else>
-    <ul class="img_list" >
-      <li class="img_container" v-for="event in eventList">
+    <div id="myNav" class="overlay">
+
+      <!-- Button to close the overlay navigation -->
+      <a class="closebtn" v-on:click="closeOverlay">&times;</a>
+      <!-- Overlay content -->
+      <div class="overlay-content">
+        <img class="hd_img">
+      </div>
+
+    </div>
+    <div class="img_container" v-for="event in eventList" v-on:click="viewImg">
+      <img class="img_item" v-bind:src='event.image_url'>
+    </div>
+    <div v-if="hasNextpage">
+      <button class="next_page_btn" v-if="showBtn" v-on:click='loadMore'>Load more ... </button>
+      <loader v-else ></loader>
+    </div>
+    <div v-else>
+      <p>The END...</p>
+    </div>
+    <!-- <ul class="img_list">
+      <li class="img_container" >
         <img class="img_item" v-bind:src='event.image_url'>
       </li>
       <div v-if="hasNextpage">
@@ -15,11 +35,10 @@
       <div v-else>
         <p>The END...</p>
       </div>
-    </ul>
+    </ul> -->
   </div>
 </template>
 <script>
-  // import { mapState } from 'vuex';
   import loader from '../../components/loader';
 
   export default {
@@ -37,27 +56,32 @@
         showBtn: true,
       };
     },
-    // computed: [
-    //   mapState({
-    //     countAlias: 'count',
-    //   }),
-    // ],
     components: { loader },
     methods: {
+      viewImg: function viewImg() {
+        $('#myNav').css('width', '100%');
+      },
+      closeOverlay: function close() {
+        $('#myNav').css('width', '0%');
+      },
       // scroll to the bottom, then add page_num, load the next page, until get to the last page.
       handleScroll: function handleScroll() {
         this.$store.commit({
           type: 'increment',
           amount: 10,
         });
+        const scrollTop = window.scrollY;
+        const menuContainer = $('.sidenav_container');
+        if (scrollTop > 200) {
+          menuContainer.addClass('sticky');
+        } else {
+          menuContainer.removeClass('sticky');
+        }
         // console.log(this.$store.state.count);
         // console.log(this.$store.getters.doneTodos);
         // console.log(this.$store.getters.doneTodosCount);
         // console.log(this.$store.state);
         // `Time: ${12 * 60 * 60 * 1000}`;
-        // console.log(`scrollY + ${window.scrollY}`);
-        // console.log(`window innerHeight + ${window.innerHeight}`);
-        // console.log(`document innerHeight + ${document.body.offsetHeight}`);
         if (this.next_page <= this.total_pages) {
           if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
             this.hasNextpage = true;
@@ -94,9 +118,11 @@
         this.total_pages = res.body.total_pages;
         this.current_page = res.body.current_page;
         this.next_page = this.current_page + 1;
-      }).catch(function error() {
+      })
+      .catch(function error() {
         this.loading = false;
-      }).finally(function finish() {
+      })
+      .finally(function finish() {
         this.loading = false;
         window.addEventListener('scroll', this.handleScroll);
       });

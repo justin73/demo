@@ -1,8 +1,9 @@
 const enUS = {
   nav: {
+    domain: 'Meng',
     index: 'Index',
-    dashboard: 'Dashboard',
-    services: 'Services',
+    photography: 'Photography',
+    projects: 'Projects',
     clubs: 'Clubs',
     events: 'Events',
     feeds: 'Feeds',

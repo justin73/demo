@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<p>index page</p>
+	<div class="door_wrapper">
+		<!-- <p>index page</p>
 		<span>Name:</span>
 		<input v-model="schoolName" placeholder="Unversity Name">
 		<span>Description:</span>
@@ -9,7 +9,8 @@
 		<select v-model="selected">
 		  <option v-for="host in hostList" >{{host.name}}</option>
 		</select>
-    <button v-on:click="saveData">Save</button>
+    <button v-on:click="saveData">Save</button> -->
+    <div class="door left"></div><div class="door right"></div>
 	</div>
 </template>
 
@@ -43,4 +44,8 @@
     },
   };
 </script>
+
+<style lang="sass" scoped>
+  @import '../../sass/index.scss';
+</style>
 
