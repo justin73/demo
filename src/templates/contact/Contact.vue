@@ -3,19 +3,10 @@
   <div v-if="loading" ref="loading">
     <loader></loader>
   </div>
-  <div class="list_container" v-else>
-    <div id="myNav" class="overlay">
-
-      <!-- Button to close the overlay navigation -->
-      <a class="closebtn" v-on:click="closeOverlay">&times;</a>
-      <!-- Overlay content -->
-      <div class="overlay-content">
-        <img class="hd_img">
-      </div>
-
-    </div>
-    <div class="img_container" v-for="event in eventList" v-on:click="viewImg">
-      <img class="img_item" v-bind:src='event.image_url'>
+  <div class="list_container flex-container" v-else>
+    <imageOverlay v-bind:isReady="isReady" v-bind:imgList="eventList" v-bind:imgObj="imgObj"></imageOverlay>
+    <div class="img_container flex-item" v-for="event in eventList" v-on:click="viewImg">
+      <img class="img_item" v-bind:src='event.image_url' v-bind:imgId='event.id'>
     </div>
     <div v-if="hasNextpage">
       <button class="next_page_btn" v-if="showBtn" v-on:click='loadMore'>Load more ... </button>
@@ -24,21 +15,10 @@
     <div v-else>
       <p>The END...</p>
     </div>
-    <!-- <ul class="img_list">
-      <li class="img_container" >
-        <img class="img_item" v-bind:src='event.image_url'>
-      </li>
-      <div v-if="hasNextpage">
-        <button class="next_page_btn" v-if="showBtn" v-on:click='loadMore'>Load more ... </button>
-        <loader v-else ></loader>
-      </div>
-      <div v-else>
-        <p>The END...</p>
-      </div>
-    </ul> -->
   </div>
 </template>
 <script>
+  import imageOverlay from '../../components/imgOverlay';
   import loader from '../../components/loader';
 
   export default {
@@ -54,22 +34,32 @@
         hasNextpage: false,
         fetchingPics: false,
         showBtn: true,
+        imgObj: null,
+        imgId: 0,
+        isReady: false,
       };
     },
-    components: { loader },
+    components: {
+      loader,
+      imageOverlay,
+    },
     methods: {
-      viewImg: function viewImg() {
+      viewImg: function viewImg(event) {
         $('#myNav').css('width', '100%');
-      },
-      closeOverlay: function close() {
-        $('#myNav').css('width', '0%');
+        this.imgId = $(event.target).attr('imgId');
+        for (const imgObj of this.eventList) {
+          if (imgObj.id === parseInt(this.imgId, 10)) {
+            this.imgObj = imgObj;
+            this.isReady = true;
+          }
+        }
       },
       // scroll to the bottom, then add page_num, load the next page, until get to the last page.
       handleScroll: function handleScroll() {
-        this.$store.commit({
-          type: 'increment',
-          amount: 10,
-        });
+        // this.$store.commit({
+        //   type: 'increment',
+        //   amount: 10,
+        // });
         const scrollTop = window.scrollY;
         const menuContainer = $('.sidenav_container');
         if (scrollTop > 200) {
@@ -131,5 +121,8 @@
 </script>
 
 <style lang="sass" scoped>
+  // @import '../../libs/effects.min.css';
   @import '../../sass/contact.scss';
+
 </style>
+
