@@ -13,11 +13,25 @@
               <p>{{imgObj.description}}</p>
             </div>
             <div class="setting_info">
-              <p class="sub_title"><i class="fa fa-camera-retro fa-2x"></i><span>Details</span><i class="more fa fa-angle-down" aria-hidden="true"></i></p>
-              <p>{{imgObj.camera}}</p>
-              <p>{{imgObj.lens}}</p>
-              <p>{{imgObj.focal_length}} | {{imgObj.shutter_speed}} | {{imgObj.iso}} | {{imgObj.aperture}}</p>
-              <p>{{imgObj.taken_At}}</p>
+              <div>
+                <p class="sub_title" v-on:click="toggleInfo"><i class="fa fa-camera-retro fa-2x"></i><span>Details</span><i class="more fa fa-angle-down" aria-hidden="true"></i></p>
+              </div>
+              <div class="camera_params" ref="camera_params">
+                <p class="main">{{imgObj.camera}}</p>
+                <p class="extra">{{imgObj.lens}}</p>
+                <p class="extra">{{imgObj.focal_length}} | {{imgObj.shutter_speed}} | {{imgObj.iso}} | {{imgObj.aperture}}</p>
+                <p class="extra">{{imgObj.taken_At}}</p>
+              </div>
+            </div>
+            <div class="location_info">
+              <div>
+                <p class="sub_title" v-on:click="toggleInfo"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i><span>Location</span><i class="more fa fa-angle-down" aria-hidden="true"></i></p>
+              </div>
+              <div class="location_params" ref="location_params">
+                <p>{{imgObj.latitude}}</p>
+                <p>{{imgObj.longitude}}</p>
+              </div>
+            </div>
             </div>
           </div>
         </div>
@@ -32,11 +46,30 @@
     data: function data() {
       return {
         imgInfo: '',
+        showCameraSettings: true,
       };
     },
     methods: {
       closeOverlay: function close() {
+        console.log('close');
         $(this.$refs.myNav).css('width', '0%');
+      },
+      toggleInfo: function toggleInfoSection(event) {
+        if ($(event.target).is('i') || $(event.target).is('span')) {
+          $(this).next($(event.target).parent()
+            .parent()
+            .next()
+            .slideToggle('fast')
+          );
+        } else {
+          $(this).next($(event.target).parent().next().slideToggle('fast'));
+        }
+        // console.log($(event.target).parent().next());
+
+      //   if(this.showCameraSettings) {
+      //     this.showCameraSettings = false;
+      //     $(this.$refs.camera_params).slideUp();
+      //   }
       },
     },
     mounted() {

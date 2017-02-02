@@ -17,19 +17,21 @@
 /* Position the content inside the overlay */
 .overlay-content {
     position: relative;
-    top: 25%; /* 25% from the top */
+    top: 20%; /* 25% from the top */
     width: 100%; /* 100% width */
     text-align: center; /* Centered text/links */
     // margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
     .content_wrapper{
         width: 80%;
         max-width: 1024px;
-        min-height: 400px;
+        min-height: 450px;
         margin: 0 auto;
         background-color:white;
         .img_container{
+            // display: inline-flex;
             display: inline-block;
             width: 70%;
+            // min-height: 500px;
         }
         .detail_info_container{
             display: inline-block;
@@ -38,27 +40,54 @@
             padding: 20px;
             vertical-align: top;
             padding-right: 50px;
+            p{
+                font-family: $content-font;
+            }
             .camera_info{
                 text-align: left;
-                p{
-                    font-family: $content-font;
-                }
                 margin-bottom: 20px;
                 border-bottom: 1px solid #eeeff2;
             }
-            .setting_info{
+            .setting_info,.location_info{
                 text-align: center;
-                p.sub_title{
-                    text-align: left;
-                    span{
-                        line-height: 32px;
-                        display: inline-block;
-                        vertical-align: top;
-                        margin-left: 10px;
+                .camera_params{
+                    padding: 20px;
+                    p{
+                        color: #525558;
+                        font-size: 14px;
+                        &.extra{
+                            font-size: 12px;
+                        }
                     }
-                    .more{
-                        float: right;
+                }
+                .location_params{
+                    p{
+                        margin: 0px;
                     }
+                }
+            }
+            p.sub_title{
+                text-align: left;
+                border-bottom: 1px solid #eeeff2;
+                padding-bottom: 10px;
+                span{
+                    line-height: 32px;
+                    display: inline-block;
+                    vertical-align: top;
+                    margin-left: 10px;
+                }
+                i{
+                    width: 32px;
+                    text-align: center;
+                }
+                .more{
+                    float: right;
+                    line-height: 32px;
+                    vertical-align: top;
+                }
+                &:hover{
+                    cursor: pointer;
+                    color: #0099e5;
                 }
             }
         }
@@ -90,14 +119,15 @@
     position: absolute;
     top: 100px;
     right: 45px;
-    font-size: 60px;
+    z-index: 1000;
+    font-size: 40px;
 }
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
 @media screen and (max-height: 450px) {
     .overlay a {font-size: 20px}
     .overlay .closebtn {
-        font-size: 40px;
+        font-size: 20px;
         top: 150px;
         right: 35px;
     }
