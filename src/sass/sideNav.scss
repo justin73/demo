@@ -37,14 +37,15 @@
       font-size: 18px;
       font-weight: 100;
       margin: 0 20px;
+      &.router-link-active{
+        // border-bottom:5px solid #2c3e50;
+        // padding-bottom:10px;
+        color: #335C7D;
+        font-size: 28px;
+        transition: all 0.2s ease;
+      }
   	}
-    &.router-link-active{
-      // border-bottom:5px solid #2c3e50;
-      // padding-bottom:10px;
-      color: #335C7D;
-      font-size: 28px;
-      transition: all 0.2s ease;
-    }
+
     &.nav_section:last-of-type{
       margin-right: 100px;
     }

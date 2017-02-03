@@ -24,9 +24,11 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
       'vue$': 'vue/dist/vue.common.js',
+      'fullpage': 'fullpage.js/dist/jquery.fullpage.js',
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/components')
+      'components': path.resolve(__dirname, '../src/components'),
+      'jquery': 'jquery/src/jquery',
     }
   },
   resolveLoader: {
@@ -83,7 +85,11 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      }
+      },
+      // {
+      //   test: /jquery\.fullpage\.js$/,
+      //   loader: 'imports?jQuery=jquery,$=jquery,this=>window'
+      // }
     ]
   },
   eslint: {
@@ -96,5 +102,10 @@ module.exports = {
         browsers: ['last 2 versions']
       })
     ]
-  }
+  },
+  // plugins: {
+  //   new webpack.ProvidePlugin({
+  //     fullPage: "fullPage.js",
+  //   })
+  // }
 }

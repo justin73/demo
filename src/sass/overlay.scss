@@ -17,21 +17,27 @@
 /* Position the content inside the overlay */
 .overlay-content {
     position: relative;
-    top: 20%; /* 25% from the top */
+    top: 22%; /* 25% from the top */
     width: 100%; /* 100% width */
     text-align: center; /* Centered text/links */
     // margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
     .content_wrapper{
         width: 80%;
         max-width: 1024px;
-        min-height: 450px;
+        min-height: 500px;
         margin: 0 auto;
         background-color:white;
-        .img_container{
+        .img_wrapper{
             // display: inline-flex;
             display: inline-block;
             width: 70%;
+            min-height: 500px;
             // min-height: 500px;
+            .img_container{
+                display: flex;
+                align-items: center;
+                height: 500px;
+            }
         }
         .detail_info_container{
             display: inline-block;
@@ -93,8 +99,8 @@
         }
     }
     .hd_img{
-    	width:90%;
-    	height: auto;
+    	max-width:90%;
+    	height: 90%;
         margin: 30px auto;
     }
 }

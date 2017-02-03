@@ -17,7 +17,8 @@ Vue.use(VueResource);
 Vue.use(Vuex);
 // i18n init
 require('./locale/config');
-
+require('jquery');
+require('fullpage');
 
 const router = require('./routes/router');
 // import store object and inject it into the vue global scope
@@ -33,7 +34,7 @@ new Vue({
     <div class='sidebar_container' style="width: 100%;top: 0px;z-index: 100;position: fixed">
       <sidebar></sidebar>
     </div>
-    <div class="content_container" style="margin-top: 50px;position: relative; top: 108px;
+    <div class="content_container" style="position: relative; top: 108px;
     z-index: 1;">
       <router-view></router-view>
     </div>

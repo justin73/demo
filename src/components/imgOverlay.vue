@@ -5,8 +5,10 @@
       <!-- Overlay content -->
       <div class="overlay-content">
         <div v-if="isReady" class="content_wrapper">
-          <div class="img_container">
-            <img class="hd_img" v-bind:src="imgObj.image_url">
+          <div class="img_wrapper">
+            <div class="img_container">
+              <img class="hd_img" v-bind:src="imgObj.image_url">
+            </div>
           </div><div class="detail_info_container" ref="details">
             <div class="camera_info">
               <p>{{imgObj.name}}</p>
@@ -16,11 +18,15 @@
               <div>
                 <p class="sub_title" v-on:click="toggleInfo"><i class="fa fa-camera-retro fa-2x"></i><span>Details</span><i class="more fa fa-angle-down" aria-hidden="true"></i></p>
               </div>
-              <div class="camera_params" ref="camera_params">
+              <div v-if="imgObj.camera" class="camera_params" ref="camera_params">
                 <p class="main">{{imgObj.camera}}</p>
                 <p class="extra">{{imgObj.lens}}</p>
-                <p class="extra">{{imgObj.focal_length}} | {{imgObj.shutter_speed}} | {{imgObj.iso}} | {{imgObj.aperture}}</p>
+                <!--200mm/ƒ/5.6/29s/ISO 100-->
+                <p class="extra">{{imgObj.focal_length}} mm/{{imgObj.shutter_speed}}s/ISO {{imgObj.iso}}/ƒ/{{imgObj.aperture}}</p>
                 <p class="extra">{{imgObj.taken_At}}</p>
+              </div>
+              <div v-else>
+                <p class="main">Info Not Available</p>
               </div>
             </div>
             <div class="location_info">
@@ -46,7 +52,7 @@
     data: function data() {
       return {
         imgInfo: '',
-        showCameraSettings: true,
+        // info_available: true;
       };
     },
     methods: {
@@ -64,13 +70,10 @@
         } else {
           $(this).next($(event.target).parent().next().slideToggle('fast'));
         }
-        // console.log($(event.target).parent().next());
-
-      //   if(this.showCameraSettings) {
-      //     this.showCameraSettings = false;
-      //     $(this.$refs.camera_params).slideUp();
-      //   }
       },
+    },
+    ready() {
+      // this.imgObj
     },
     mounted() {
     },
