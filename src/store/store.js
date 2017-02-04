@@ -25,6 +25,11 @@ const store = new Vuex.Store({
       state.count += payload.amount;
     },
   },
+  actions: {
+    increment(context) {
+      context.commit('increment');
+    },
+  },
 });
 
 export default store;

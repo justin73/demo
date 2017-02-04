@@ -5,10 +5,14 @@ import VueResource from 'vue-resource';
 import VueI18n from 'vue-i18n';
 import Vue from 'vue';
 import Vuex from 'vuex';
+import aos from 'aos';
+
 // Global Components
 import Sidebar from './components/sideNav';
+
 // import PageContent from './components/page_content';
 
+Vue.directive('aos', aos);
 // Middleware
 // explicitly use all the packages which are used for the app
 Vue.use(VueI18n);
@@ -19,6 +23,10 @@ Vue.use(Vuex);
 require('./locale/config');
 require('jquery');
 require('fullpage');
+// // require('AOS');
+require('granim');
+require('masonry-layout');
+require('imports?jQuery=jquery!letteringjs');
 
 const router = require('./routes/router');
 // import store object and inject it into the vue global scope
@@ -34,7 +42,7 @@ new Vue({
     <div class='sidebar_container' style="width: 100%;top: 0px;z-index: 100;position: fixed">
       <sidebar></sidebar>
     </div>
-    <div class="content_container" style="position: relative; top: 108px;
+    <div class="content_container" style="position: relative;
     z-index: 1;">
       <router-view></router-view>
     </div>

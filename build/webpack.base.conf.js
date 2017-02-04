@@ -29,6 +29,9 @@ module.exports = {
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components'),
       'jquery': 'jquery/src/jquery',
+      'masonry':'masonry-layout/masonry.js',
+      'granim':'granim',
+      'lettering':'letteringjs/jquery.lettering.js',
     }
   },
   resolveLoader: {
@@ -86,10 +89,10 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
-      // {
-      //   test: /jquery\.fullpage\.js$/,
-      //   loader: 'imports?jQuery=jquery,$=jquery,this=>window'
-      // }
+      {
+        test: require.resolve("letteringjs"),
+        loader: "imports-loader?this=>window"
+      }
     ]
   },
   eslint: {

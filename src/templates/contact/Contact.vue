@@ -3,13 +3,20 @@
   <div v-if="loading" ref="loading">
     <loader></loader>
   </div>
-  <div class="list_container flex-container" v-else>
+  <div class="list_container flex-container" v-else >
     <imageOverlay v-bind:isReady="isReady" v-bind:imgList="eventList" v-bind:imgObj="imgObj"></imageOverlay>
-    <div class="img_container flex-item" v-for="event in eventList" v-on:click="viewImg">
-      <img class="img_item" v-bind:src='event.image_url' v-bind:imgId='event.id'>
+    <div class="img_container flex-item" data-aos="zoom-in" v-for="event in eventList" v-on:click="viewImg">
+       <img class="img_item" v-bind:src='event.image_url' v-bind:imgId='event.id'>
     </div>
+    <!-- <div class="grid">
+      <div class="grid-sizer"></div>
+      <div class="grid-item mg_container flex-item" data-aos="zoom-in" v-for="event in eventList" v-on:click="viewImg">
+        <img class="img_item" v-bind:src='event.image_url' v-bind:imgId='event.id'>
+      </div>
+    </div> -->
     <div v-if="hasNextpage">
-      <button class="next_page_btn" v-if="showBtn" v-on:click='loadMore'>Load more ... </button>
+      <!-- <button class="next_page_btn" v-if="showBtn" v-on:click='loadMore'> </button> -->
+      <button class="next_page_btn bttn-stretch bttn-md bttn-primary" v-if="showBtn" v-on:click='loadMore'>Load more ...</button>
       <loader v-else ></loader>
     </div>
     <div v-else>
@@ -18,6 +25,8 @@
   </div>
 </template>
 <script>
+  // import AOS from 'aos';
+  // import Masonry from 'masonry-layout';
   import imageOverlay from '../../components/imgOverlay';
   import loader from '../../components/loader';
 
@@ -99,6 +108,9 @@
         }
       },
     },
+    beforeCreated() {
+      // const AOS = new AOS();
+    },
     mounted() {
       this.resourceUrl += `&page=${this.current_page}`;
       this.$http
@@ -108,13 +120,33 @@
         this.total_pages = res.body.total_pages;
         this.current_page = res.body.current_page;
         this.next_page = this.current_page + 1;
+      }).then(function next() {
+        this.loading = false;
+        window.addEventListener('scroll', this.handleScroll);
       })
       .catch(function error() {
         this.loading = false;
       })
       .finally(function finish() {
-        this.loading = false;
-        window.addEventListener('scroll', this.handleScroll);
+        // AOS.init({
+        //   offset: 200,
+        //   duration: 600,
+        //   easing: 'ease-in-sine',
+        //   delay: 100,
+        // });
+        // external js: masonry.pkgd.js, imagesloaded.pkgd.js
+
+        // init Masonry
+        // const grid = new Masonry('.grid', {
+        //   itemSelector: '.grid-item',
+        //   percentPosition: true,
+        //   columnWidth: '.grid-sizer',
+        // });
+        // console.log(grid);
+        // // layout Isotope after each image loads
+        // grid.imagesLoaded().progress(function doit() {
+        //   grid.masonry();
+        // });
       });
     },
   };
@@ -123,6 +155,6 @@
 <style lang="sass" scoped>
   // @import '../../libs/effects.min.css';
   @import '../../sass/contact.scss';
-
+  // @import '../../../../node_modules/aos/dist/aos.css';
 </style>
 
