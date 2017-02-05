@@ -5,7 +5,7 @@
   </div>
   <div class="list_container flex-container" v-else >
     <imageOverlay v-bind:isReady="isReady" v-bind:imgList="eventList" v-bind:imgObj="imgObj"></imageOverlay>
-    <div class="img_container flex-item" data-aos="zoom-in" v-for="event in eventList" v-on:click="viewImg">
+    <div class="img_container flex-item" v-for="event in eventList" v-on:click="viewImg">
        <img class="img_item" v-bind:src='event.image_url' v-bind:imgId='event.id'>
     </div>
     <!-- <div class="grid">
