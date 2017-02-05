@@ -4,7 +4,7 @@
       <div class="grid">
         <div class="grid__item">
           <a class="link link--yaku" href="#">
-            <span>M</span><span>e</span><span>n</span><span>g</span><span>(M</span><span>.E</span><span>n</span><span>g),&nbsp;</span><span>c'</span><span>e</span><span>s</span><span>t&nbsp;</span><span>M</span><span>o</span><span>i</span><span>!</span>
+            <span>M</span><span>e</span><span>n</span><span>g</span><span>(M</span><span>.E</span><span>n</span><span>g),&nbsp;</span><span>c'</span><span>e</span><span>s</span><span>t&nbsp;</span><span>m</span><span>o</span><span>i</span><span>!</span>
           </a>
         </div>
       </div>
@@ -31,37 +31,37 @@
     </div>
     <div class="section split">
       <div class="box" id="box1">
-         <router-link :to="{ name: 'job_item', params: { compnay:'oohlala' }}">
+         <router-link :to="{ name: 'job_item', params: { company:'oohlala' }}">
           <div class="item" >
-            <p>Web Dev @ OOHLALA Mobile Inc.</p>
+            <p>Web Dev</p>
             <img src='../../assets/oohlala.png'>
             <div class="item-overlay top"></div>
           </div>
         </router-link>
       </div>
       <div class="box" id="box2">
-        <router-link :to="{ name: 'job_item', params: { compnay:'mcm' }}">
+        <router-link :to="{ name: 'job_item', params: { company:'mcm' }}">
           <div class="item">
-            <p>Consultant @ MCM</p>
-            <img src='../../assets/mcm.jpg'>
+            <p>Tech Consultant</p>
+            <img src='../../assets/mcm.png'>
             <div class="item-overlay top"></div>
           </div>
         </router-link>
       </div>
       <div class="box" id="box3">
-        <router-link :to="{ name: 'job_item', params: { compnay:'nowinstore' }}">
+        <router-link :to="{ name: 'job_item', params: { company:'nowinstore' }}">
           <div class="item">
-            <p>Front-End Dev @ NowInStore</p>
+            <p>Front-End Dev</p>
             <img src='../../assets/nowinsotre_logo.png'>
             <div class="item-overlay top"></div>
           </div>
           </router-link>
       </div>
       <div class="box" id="box4">
-        <router-link :to="{ name: 'job_item', params: { compnay:'freelance' }}">
+        <router-link :to="{ name: 'job_item', params: { company:'freelance' }}">
           <div class="item">
             <p>Freelance Photographer</p>
-            <img src='../../assets/nowinsotre_logo.png'>
+            <img >
             <div class="item-overlay top"></div>
           </div>
         </router-link>

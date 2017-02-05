@@ -9,6 +9,7 @@ var env = process.env.NODE_ENV
 var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
 var cssSourceMapProd = (env === 'production' && config.build.productionSourceMap)
 var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
+var pathToBourbon = require('node-bourbon').includePaths;
 
 module.exports = {
   entry: {
@@ -89,6 +90,7 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
+
       {
         test: require.resolve("letteringjs"),
         loader: "imports-loader?this=>window"
@@ -105,6 +107,9 @@ module.exports = {
         browsers: ['last 2 versions']
       })
     ]
+  },
+  sassLoader: {
+    includePaths: [pathToBourbon]
   },
   // plugins: {
   //   new webpack.ProvidePlugin({
