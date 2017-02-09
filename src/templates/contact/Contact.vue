@@ -1,13 +1,16 @@
 
-<template>
+<template>  
   <div v-if="loading" ref="loading">
     <loader></loader>
   </div>
+
   <div class="list_container flex-container" v-else >
     <imageOverlay v-bind:isReady="isReady" v-bind:imgList="eventList" v-bind:imgObj="imgObj"></imageOverlay>
+    <!-- <transition name="fade"> -->
     <div class="img_container flex-item" v-for="event in eventList" v-on:click="viewImg">
        <img class="img_item" v-bind:src='event.image_url' v-bind:imgId='event.id'>
     </div>
+    <!-- </transition> -->
     <!-- <div class="grid">
       <div class="grid-sizer"></div>
       <div class="grid-item mg_container flex-item" data-aos="zoom-in" v-for="event in eventList" v-on:click="viewImg">
@@ -112,6 +115,7 @@
       // const AOS = new AOS();
     },
     mounted() {
+      $('.sidebar_container').fadeIn('fast');
       this.resourceUrl += `&page=${this.current_page}`;
       this.$http
       .get(this.resourceUrl)
@@ -151,7 +155,9 @@
     },
   };
 </script>
-
+<style lang="sass">
+  .content_container{ background: #abbaab; background: -webkit-linear-gradient(to bottom, #abbaab , #fff); background: linear-gradient(to bottom, #abbaab , #fff)}
+</style>
 <style lang="sass" scoped>
   // @import '../../libs/effects.min.css';
   @import '../../sass/contact.scss';

@@ -34,6 +34,7 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     "no-console":0,
-    'prefer-arrow-callback': ["error", { "allowNamedFunctions": true }]
+    'prefer-arrow-callback': ["error", { "allowNamedFunctions": true }],
+    'linebreak-style': ["error", "windows"]
   }
 }

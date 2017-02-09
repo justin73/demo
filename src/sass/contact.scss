@@ -1,8 +1,11 @@
 @import './loader.scss';
 @import './base_style.scss';
 body{
-   margin:0;
-   padding:0;
+  margin:0;
+  padding:0;
+  background: #335C7D; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #335C7D , #fff); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #335C7D , #fff)
 }
 .list_container{
 	// box-sizing: content-box;
@@ -11,12 +14,17 @@ body{
     margin: 0 auto 30px;
     margin-top: 108px;
     max-width: 935px;
- 	display: flex; /* or inline-flex */
- 	flex-direction: row;
+    display: flex; /* or inline-flex */
+    flex-direction: row;
     flex-wrap: wrap;
     flex-flow: row wrap;
   	/* Then we define how is distributed the remaining space */
   	justify-content: space-around;
+
+    // background: #335C7D; /* fallback for old browsers */
+    // background: -webkit-linear-gradient(to bottom, #335C7D , #fff); /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(to bottom, #335C7D , #fff);
+
 	.img_container{
 		// display: inline-block;
 		// margin: 0px 14px 14px 0px;
@@ -135,3 +143,18 @@ body{
 .grid-item { width: 20%; }
 /* 2 columns wide */
 .grid-item--width2 { width: 40%; }
+
+
+/* Enter and leave animations can use different */
+/* durations and timing functions.              */
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for <2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}

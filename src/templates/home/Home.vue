@@ -24,17 +24,17 @@
 
     </div>
     <div class="section">
-      <!-- <div class="txt_wrapper">
-        <p class="animated slideInDown">Welcome!</p>
-      </div> -->
-      <canvas id="canvas-image"></canvas>
+        <canvas id="canvas-image"></canvas>
+        <router-link to='/dashboard'><p class='txt_on_canvas'>My Photography</p></router-link>
     </div>
     <div class="section split">
       <div class="box" id="box1">
          <router-link :to="{ name: 'job_item', params: { company:'oohlala' }}">
           <div class="item" >
             <p>Web Dev</p>
-            <img src='../../assets/oohlala.png'>
+            <div class='logo_container'>
+              <img src='../../assets/oohlala.png'>
+            </div>
             <div class="item-overlay top"></div>
           </div>
         </router-link>
@@ -43,7 +43,9 @@
         <router-link :to="{ name: 'job_item', params: { company:'mcm' }}">
           <div class="item">
             <p>Tech Consultant</p>
-            <img src='../../assets/mcm.png'>
+            <div class='logo_container'>
+              <img src='../../assets/mcm.png'>
+            </div>
             <div class="item-overlay top"></div>
           </div>
         </router-link>
@@ -52,7 +54,9 @@
         <router-link :to="{ name: 'job_item', params: { company:'nowinstore' }}">
           <div class="item">
             <p>Front-End Dev</p>
-            <img src='../../assets/nowinsotre_logo.png'>
+            <div class='logo_container'>
+              <img src='../../assets/nowinstore.png'>
+            </div>
             <div class="item-overlay top"></div>
           </div>
           </router-link>
@@ -60,8 +64,10 @@
       <div class="box" id="box4">
         <router-link :to="{ name: 'job_item', params: { company:'freelance' }}">
           <div class="item">
-            <p>Freelance Photographer</p>
-            <img >
+            <p>Freelancer</p>
+            <div class='logo_container'>
+              <img src='../../assets/nowinstore.png'>
+            </div>
             <div class="item-overlay top"></div>
           </div>
         </router-link>
@@ -78,10 +84,10 @@
     </div> -->
     <div class="section">
       <div class="social_container">
-        <i class="fa fa-github" aria-hidden="true"></i>
-        <i class="fa fa-500px" aria-hidden="true"></i>
-        <i class="fa fa-instagram" aria-hidden="true"></i>
-        <i class="fa fa-twitter" aria-hidden="true"></i>
+        <div class="icon_container"><a><i class="fa fa-github" aria-hidden="true"></i></a></div>
+        <div class="icon_container"><a><i class="fa fa-500px" aria-hidden="true"></i></a></div>
+        <div class="icon_container"><a><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
+        <div class="icon_container"><a><i class="fa fa-envelope" aria-hidden="true"></i></i></a></div>
       </div>
       <div class="footer"></div>
     </div>
@@ -135,9 +141,13 @@
         fitToSectionDelay: 1000,
         // Design
         controlArrows: true,
+        continuousVertical: false,
         // verticalCentered: true,
         sectionsColor: ['#ccc', '#fff', '#ccc', '#fff'],
         // lazyLoading: true,
+        navigation: true,
+        navigationPosition: 'right',
+        navigationTooltips: ['Moi', 'My Photography', 'My Professional Life', 'Contact Me'],
         onLeave: function changeSection(index, nextIndex, direction) {
           if (direction === 'down') {
             $('.sidebar_container').fadeOut('slow');
@@ -157,7 +167,7 @@
               ['#485563', '#29323c', '#29323c'],
               ['#00c6ff', '#0072ff', '#0072ff'],
             ],
-            transitionSpeed: 10000,
+            transitionSpeed: 5000,
           },
         },
       });
@@ -196,7 +206,9 @@
     },
   };
 </script>
-
+<style lang="sass">
+  .content_container{position: relative;top: 0px;}
+</style>
 <style lang="sass" scoped>
   @import '../../sass/index.scss';
 </style>

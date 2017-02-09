@@ -136,6 +136,7 @@
     methods: {
     },
     mounted() {
+      $('.sidebar_container').fadeIn('fast');
     },
   };
 </script>

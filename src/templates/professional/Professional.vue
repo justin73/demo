@@ -43,12 +43,23 @@
 
 <style>
   .oohlala{
-    background: rgba(44,148,233, 0.7);
+    /*background: rgba(44,148,233, 0.7);*/
+    position: relative;
+    top: 109px;
   }
   .mcm{
+    position: relative;
+    top: 109px;
     background: #f4f4f4;
   }
   .nowinstore{
+    position: relative;
+    top: 109px;
+    background: #62588e;
+  }
+  .freelance{
+    position: relative;
+    top: 109px;
     background: #62588e;
   }
 </style>

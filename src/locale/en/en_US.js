@@ -3,7 +3,7 @@ const enUS = {
     domain: 'Meng',
     index: 'Index',
     photography: 'Photography',
-    projects: 'Projects',
+    projects: 'Professional',
     clubs: 'Clubs',
     events: 'Events',
     feeds: 'Feeds',
