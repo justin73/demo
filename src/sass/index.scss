@@ -49,6 +49,14 @@
 		font-weight: 100;
 		text-align: center;
 		font: 300% $content-font;
+
+		font-family: 'Oswald', sans-serif;
+	    font-size: 10em;
+	    font-weight: 700;
+	    text-transform: uppercase;
+	    color: #e78383;
+	    -webkit-transition: color 0s 0.5s;
+	    transition: color 0s 0.5s;
 	}
 }
 
@@ -186,13 +194,24 @@ a{
     font-size: 48px;
     font-weight: 100;
    	@include gradient-text('linear-gradient(to right,#23966c, #faaa54, #e23b4a, #db0768, #360670)', 'light');
-   	&:hover{
-   		font-size: 60px;
+ //   	&:hover{
+ //   		font-size: 60px;
+ //   	}
+ //   	-webkit-transition: all 0.3s ease;
+	// -moz-transition: all 0.3s ease;
+	// -o-transition: all 0.3s ease;
+	// -ms-transition: all 0.3s ease;
+
+	font-family: 'Oswald', sans-serif;
+    font-size: 5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #e78383;
+    -webkit-transition: color 0s 0.5s;
+    transition: color 0s 0.5s;
+    &:hover{
+   		// font-size: 60px;
    	}
-   	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	-ms-transition: all 0.3s ease;
 }
 // end of secion 2
 
@@ -436,3 +455,53 @@ a{
 
 
 
+// /* Kukuri */
+.link--kukuri {
+	text-transform: uppercase;
+	font-weight: 900;
+	overflow: hidden;
+	color: #c5c2b8;
+	font-family: $content-font;
+}
+
+.link--kukuri:hover {
+	color: #000;
+}
+
+.link--kukuri::after {
+	content: '';
+	position: absolute;
+	height: 16px;
+	width: 100%;
+	top: 50%;
+	margin-top: -8px;
+	right: 0;
+	// sbackground: #fff;
+	-webkit-transform: translate3d(-100%,0,0);
+	transform: translate3d(-100%,0,0);
+	-webkit-transition: -webkit-transform 0.4s;
+	transition: transform 0.4s;
+	-webkit-transition-timing-function: cubic-bezier(0.7,0,0.3,0);
+	transition-timing-function: cubic-bezier(0.7,0,0.3,0);
+}
+
+.link--kukuri:hover::after {
+	-webkit-transform: translate3d(100%,0,1);
+	transform: translate3d(100%,0,1);
+}
+
+.link--kukuri::before {
+	content: attr(data-letters);
+	position: absolute;
+	z-index: 2;
+	overflow: hidden;
+	color: #424242;
+	white-space: nowrap;
+	width: 0%;
+	-webkit-transition: width 0.4s 0.3s;
+	transition: width 0.4s 0.3s;
+}
+
+.link--kukuri:hover::before {
+	width: 100%;
+}

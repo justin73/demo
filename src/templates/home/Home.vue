@@ -24,8 +24,8 @@
 
     </div>
     <div class="section">
-        <canvas id="canvas-image"></canvas>
-        <router-link to='/dashboard'><p class='txt_on_canvas'>My Photography</p></router-link>
+      <canvas id="canvas-image"></canvas>
+      <router-link to='/dashboard'><p class='txt_on_canvas link--kukuri'>Photography Portfolio</p></router-link>
     </div>
     <div class="section split">
       <div class="box" id="box1">
