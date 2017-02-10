@@ -346,10 +346,12 @@ a{
 		font-weight: 100;
 		margin-top: 60px;
     	font-size: 1.2rem;
+    	position: relative;
     }
 }
 .scroll_hint_container{
 	text-align: center;
+	position: relative;
 	p{
 		color: #DDD;
 		font-size: 90%;
