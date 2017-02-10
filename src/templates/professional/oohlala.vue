@@ -64,9 +64,11 @@
       </div> <!-- cd-timeline-img -->
 
       <div class="cd-timeline-content">
-        <h2>Taking the lead on the Web Team</h2>
-        <p>Starting in the summer, I've been taking more responisbilities on the web development. Taking the lead for sprint tasks plannin, development responsibilities,etc.</p>
-        <span class="cd-date">June 2015</span>
+        <h2>Integrated Payment System using Stripe.js for Campus Cloud </h2>
+        <p>This feature comes with the event ticketing system, which was designed for clients to not only create events via OOHLALA platform but also be able to sale tickets for orientation or other events. So it is one centralized place to do all the work. On Campus Cloud, after creating events, clients can setup banking information, get verified and then enable the ticket saling feature.</p>
+
+        <p>The entire event feature, inlcuding ticketing and payment system, is one of the major 2015 roadmap features. </p>
+        <span class="cd-date">July 2015</span>
       </div> <!-- cd-timeline-content -->
     </div> <!-- cd-timeline-block -->
     <div class="cd-timeline-block" v-aos data-aos="fade-up-right">
@@ -75,15 +77,11 @@
       </div> <!-- cd-timeline-img -->
 
       <div class="cd-timeline-content">
-        <h2>Integrated Payment System using Stripe.js for Campus Cloud </h2>
-        <p>This feature comes with the event ticketing system, which was designed for clients to not only create events via OOHLALA platform but also be able to sale tickets for orientation or other events. So it is one centralized place to do all the work. On Campus Cloud, after creating events, clients can setup banking information, get verified and then enable the ticket saling feature.</p>
-
-        <p>The entire event feature, inlcuding ticketing and payment system, is one of the major 2015 roadmap features. </p>
-        <span class="cd-date">July 2015</span>
+        <h2>YC and me taking the lead on the Web Team</h2>
+        <p>Starting in the summer, the founders joined the YC 2016. A senior web dev also went to California to join the team. Therefore, I've been taking more responisbilities on the web development in the house. Taking the lead for sprint tasks plannin, development responsibilities,etc.</p>
+        <span class="cd-date">June 2016</span>
       </div> <!-- cd-timeline-content -->
     </div> <!-- cd-timeline-block -->
-
-
     <div class="cd-timeline-block" v-aos data-aos="fade-up-left">
       <div class="cd-timeline-img cd-movie oohlala">
         <!-- <img src="img/cd-icon-picture.svg" alt="Picture"> -->
@@ -129,6 +127,15 @@
         <h2>Service Assessment</h2>
         <p>Led by me, the web team launced the support for Service Assessment as the last major feature for the winter loadmap. Campus Services now can be able to check-in students using the Campus Clouds and get instant rating & feedback</p>
         <span class="cd-date">Jan 16th, 2017</span>
+      </div>
+    </div>
+    <div class="cd-timeline-block" v-aos data-aos="fade-up-right">
+      <div class="cd-timeline-img cd-movie oohlala">
+      </div>
+      <div class="cd-timeline-content">
+        <h2>$5.3 Million, Series A </h2>
+        <p>It is a milestone for OOHLALA, after working hard for a long time, OOHLALA got a series A funding led by University Ventures, Y Combinator, Joe Montana’s liquid 2 VC, GoAhead Ventures, and Real Ventures among others.</p>
+        <span class="cd-date">Jan 25th, 2017</span>
       </div>
     </div>
     <div class="cd-timeline-block" v-aos data-aos="fade-up-left">
