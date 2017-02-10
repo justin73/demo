@@ -11,10 +11,6 @@ import Vuex from 'vuex';
 import Sidebar from './components/sideNav';
 import aos from './directives/aos';
 
-// import PageContent from './components/page_content';
-
-// Vue.directive('aos', aos);
-// Middleware
 // explicitly use all the packages which are used for the app
 Vue.use(VueI18n);
 Vue.use(VueRouter);

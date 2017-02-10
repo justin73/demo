@@ -1,14 +1,17 @@
 <template>
   <div id="fullpage" ref="fullpage">
     <div class="section">
+      <canvas id="intro-image"></canvas>
       <div class="grid">
         <div class="grid__item">
           <a class="link link--yaku" href="#">
             <span>M</span><span>e</span><span>n</span><span>g</span><span>(M</span><span>.E</span><span>n</span><span>g),&nbsp;</span><span>c'</span><span>e</span><span>s</span><span>t&nbsp;</span><span>m</span><span>o</span><span>i</span><span>!</span>
           </a>
+          <p class="self_desc">A Front-End Dev, a photographer, a volunteer, a dog person. Loving creating beautiful things</p>
         </div>
       </div>
       <div class="scroll_hint_container" >
+        <!-- <p> scroll down to see more</p> -->
         <i class="fa fa-angle-down" aria-hidden="true" v-on:click="viewMore"></i>
       </div>
       <!-- <div class="os-phrases" id="os-phrases">
@@ -24,7 +27,7 @@
 
     </div>
     <div class="section">
-      <canvas id="canvas-image"></canvas>
+      <canvas id="photography-image"></canvas>
       <router-link to='/dashboard'><p class='txt_on_canvas link--kukuri'>Photography Portfolio</p></router-link>
     </div>
     <div class="section split">
@@ -84,12 +87,15 @@
     </div> -->
     <div class="section">
       <div class="social_container">
-        <div class="icon_container"><a><i class="fa fa-github" aria-hidden="true"></i></a></div>
-        <div class="icon_container"><a><i class="fa fa-500px" aria-hidden="true"></i></a></div>
-        <div class="icon_container"><a><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
-        <div class="icon_container"><a><i class="fa fa-envelope" aria-hidden="true"></i></i></a></div>
+        <div class="icon_container"><a href="https://github.com/justin73"><i class="fa fa-github" aria-hidden="true"></i></a></div>
+        <div class="icon_container"><a href="https://www.linkedin.com/in/meng-jia-9b189454/"><i class="fa fa-linkedin" aria-hidden="true"></i></a></div>
+        <div class="icon_container"><a href="https://500px.com/mengjia"><i class="fa fa-500px" aria-hidden="true"></i></a></div>
+        <div class="icon_container"><a href="https://www.instagram.com/mengjia73"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
+        <div class="icon_container"><a mailto=""><i class="fa fa-envelope" aria-hidden="true"></i></i></a></div>
+        <div class="footer">
+          <p>Created by Meng&nbsp;&nbsp;&nbsp;It is a Vue.js site&nbsp;&nbsp;&nbsp; Since 2017</p>
+        </div>
       </div>
-      <div class="footer"></div>
     </div>
   </div>
 </template>
@@ -153,7 +159,7 @@
         },
       });
       const granimInstance = new Granim({
-        element: '#canvas-image',
+        element: '#photography-image',
         direction: 'top-bottom',
         opacity: [1, 0.5, 0],
         isPausedWhenNotInView: true,

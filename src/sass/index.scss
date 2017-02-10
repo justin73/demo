@@ -170,7 +170,7 @@ a{
 
 
 // section 2
-#canvas-image {
+#photography-image {
     position: absolute;
     display: block;
     width: 100%;
@@ -261,6 +261,7 @@ a{
     display: flex;
     align-items: center;
     background: #3851bc;
+    font-family: $content-font;
     a{
     	display: inline-block;
 	    font-size: 0px;
@@ -293,15 +294,44 @@ a{
 	    }
     }
 	.icon_container{
-		width: 25%;
+		width: 20%;
 	    margin: 0 auto;
 	    text-align: center;
 	    font-size: 250%;
+	}
+	.footer{
+		position: absolute;
+		z-index: 1000;
+		display: block;
+		width: 100%;
+		text-align: center;
+		color: white;
+		bottom: 20px;
+		p{
+		    font-size: 1.2rem;
+   			font-weight: 100;
+		}
 	}
 }
 // end of section 4
 
 // section 1
+
+#intro-image {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("../../assets/intro_bg.png");
+    background-position-x: 50%;
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+
 .grid{
 	width: 100%;
     height: 90%;
@@ -311,17 +341,36 @@ a{
     &__item{
     	margin: 0 auto;
     }
+    .self_desc{
+    	color: #DDD;
+		font-weight: 100;
+		margin-top: 60px;
+    	font-size: 1.2rem;
+    }
 }
 .scroll_hint_container{
 	text-align: center;
+	p{
+		color: #DDD;
+		font-size: 90%;
+		font-weight: 100;
+		margin: 0px;
+	}
 	i{
-		font-size: 4rem;
-		font-weight: 800;
+		font-size: 3rem;
+		font-weight: 200;
 		cursor: pointer;
 		color: #DDD;
-		&:hover{
+		margin-top: -10px;
+		// &:hover{
+		// 	color: #1e1a1b;
+		// }
+	}
+	&:hover{
+		i{
 			color: #1e1a1b;
 		}
+		
 	}
 }
 /* Yaku */
