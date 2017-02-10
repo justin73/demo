@@ -7,6 +7,15 @@ body{
   background: -webkit-linear-gradient(to bottom, #335C7D , #fff); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to bottom, #335C7D , #fff)
 }
+.loading_container{
+    height: 100vh;
+    /* position: absolute; */
+    /* top: 0px; */
+    width: 100%;
+    /* padding-top: 200px; */
+    display: flex;
+    align-items: center;
+}
 .list_container{
 	// box-sizing: content-box;
     padding: 40px 20px 0;
@@ -70,51 +79,53 @@ body{
 		}
 
 	}
-
 	.next_page_btn{
+		color: #fff;
+		cursor: pointer;
 		display: block;
-		margin: 60px auto;
-		padding: 30px;
-		background: white;
+		font-size:16px;
+		font-weight: 400;
+		line-height: 45px;
+		margin: 60px auto 2em; 
+		position: relative;
+		text-decoration: none;
+		text-transform: uppercase;
+		vertical-align: middle;
+		width: 100%; 
 		border: none;
+		background: none;
+		font-weight: 100;
+  		outline: none;
+
+		svg {
+			height: 45px;
+			left: 0;
+			position: absolute;
+			top: 0; 
+			width: 100%; 
+		}
+
+		rect {
+			fill: none;
+			stroke: #fff;
+			stroke-width: 2;
+			stroke-dasharray: 422, 0;
+		}
+
+		&:hover {
+		  font-weight: 900;
+		  letter-spacing: 1px;
+		  
+		  rect {
+		    stroke-width: 5;
+		    stroke-dasharray: 15, 260;
+		    stroke-dashoffset: 48;
+		    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+		  }
+		}
 	}
 }
 
-
-// .flex-container {
-//   padding: 0;
-//   margin: 0;
-//   list-style: none;
-
-//   display: -webkit-box;
-//   display: -moz-box;
-//   display: -ms-flexbox;
-//   display: -webkit-flex;
-//   display: flex;
-
-//   -webkit-flex-flow: row wrap;
-//   justify-content: space-around;
-// }
-
-// .flex-item {
-//   background: tomato;
-//   padding: 5px;
-//   width: 200px;
-//   height: 150px;
-//   margin-top: 10px;
-
-//   line-height: 150px;
-//   color: white;
-//   font-weight: bold;
-//   font-size: 3em;
-//   text-align: center;
-// }
-
-
-
-// .list_container div:nth-child(3n+1) {
-// 	margin-left: 20px;
-// }
 .grid {
   background: #DDD;
 }
@@ -163,4 +174,13 @@ body{
 /* .slide-fade-leave-active for <2.1.8 */ {
   transform: translateX(10px);
   opacity: 0;
+}
+
+
+
+
+*{
+	transition-property: all;
+	transition-duration: .6s;
+	transition-timing-function: ease;
 }
