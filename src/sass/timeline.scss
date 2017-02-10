@@ -52,8 +52,8 @@ Modules - reusable parts of our design
 
 -------------------------------- */
 div.section{	
-	position: relative;
-    top: 109px;
+	// position: relative;
+ //    top: 109px;
 }
 .cd-container { /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
 	width: 90%;
@@ -109,8 +109,8 @@ header {
 		top: 0;
 		left: 18px;
 		height: 100%;
-		width: 4px;
-		background: darken($background, 5%);
+		width: 2px;
+		background:  rgba(255,255,255, 0.3);
 	}
 
 	@include MQ(L) {
@@ -159,7 +159,7 @@ header {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	box-shadow: 0 0 0 4px $color-3, inset 0 2px 0 rgba(#000, .08), 0 3px 0 4px rgba(#000, .05) ;
+	box-shadow: 0 0 0 4px  rgba(255,255,255, 0.2), inset 0 2px 0 rgba(#fff, .08), 0 3px 0 4px rgba(#fff, .05) ;
 
 	img {
 		display: block;
@@ -196,6 +196,9 @@ header {
 			&:nth-of-type(8){
 				background: $oohlala-8;
 			}
+		}
+		&.mcm{
+			background: white;
 		}
 	}
 
@@ -242,15 +245,18 @@ header {
 
 .cd-timeline-content {
 	position: relative;
-	margin-left: 60px;
-	background: $color-3;
+    margin-left: 60px;
+    background: rgba(255,255,255, 0.2);
+    border-radius: 1.25em;
+    padding: 2em;
+    box-shadow: 0 3px 0 rgba(255,255,255,0.1);
+    color: white;
 	@include border-radius;
 	padding: 1em;
-	box-shadow: 0 3px 0 darken($background, 5%);
 	@include clearfix;
 
 	h2 {
-		color: $color-1;
+		color: white;
 	}
 
 	p, .cd-read-more, .cd-date {
@@ -264,6 +270,7 @@ header {
 	p {
 		margin: 1em 0;
 		line-height: 1.6;
+		font-weight: 100;
 	}
 
 	.cd-read-more {
@@ -292,7 +299,7 @@ header {
 		height: 0;
 		width: 0;
 		border: 7px solid transparent;
-		border-right: 7px solid $color-3;
+		border-right: 7px solid rgba(255,255,255, 0.2);
 	}
 
 	@include MQ(M) {
@@ -318,7 +325,7 @@ header {
 			top: 24px;
 			left: 100%;
 			border-color: transparent;
-			border-left-color: $color-3;
+			border-left-color:  rgba(255,255,255, 0.2);
 		}
 
 		.cd-read-more {
@@ -341,7 +348,7 @@ header {
 				left: auto;
 				right: 100%;
 				border-color: transparent;
-				border-right-color: $color-3;
+				border-right-color:  rgba(255,255,255, 0.2);
 			}
 
 			.cd-read-more {

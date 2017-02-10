@@ -156,7 +156,7 @@
   };
 </script>
 <style lang="sass">
-  .content_container{ background: #abbaab; background: -webkit-linear-gradient(to bottom, #abbaab , #fff); background: linear-gradient(to bottom, #abbaab , #fff)}
+  // .content_container{ background: #abbaab; background: -webkit-linear-gradient(to bottom, #abbaab , #fff); background: linear-gradient(to bottom, #abbaab , #fff)}
 </style>
 <style lang="sass" scoped>
   // @import '../../libs/effects.min.css';

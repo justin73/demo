@@ -30,7 +30,7 @@
       <canvas id="photography-image"></canvas>
       <router-link to='/dashboard'><p class='txt_on_canvas link--kukuri'>Photography Portfolio</p></router-link>
     </div>
-    <div class="section split">
+   <!--  <div class="section split">
       <div class="box" id="box1">
          <router-link :to="{ name: 'job_item', params: { company:'oohlala' }}">
           <div class="item" >
@@ -75,7 +75,7 @@
           </div>
         </router-link>
       </div>
-    </div>
+    </div> -->
 <!--     <div class="section">
       <div class="siema">
         <div v-for="img in imgList">
@@ -202,8 +202,6 @@
       .lettering();
     },
     beforeDestroy() {
-      console.log('save the model now before the view is destoried, this is autosave');
-      console.log(this.schoolName);
       $.fn.fullpage.destroy('all');
     },
   };

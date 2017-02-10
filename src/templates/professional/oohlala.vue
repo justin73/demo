@@ -125,6 +125,8 @@
   </section>
 </template>
 <script>
+  import Sidebar from '../../components/sideNav';
+  import aos from '../../directives/aos';
 
   export default {
     name: 'details',
@@ -136,8 +138,9 @@
     methods: {
     },
     mounted() {
-      $('.sidebar_container').fadeIn('fast');
+      // $('.sidebar_container').fadeIn('fast');
     },
+    components: { Sidebar, aos },
   };
 </script>
 <style lang="sass" scoped>

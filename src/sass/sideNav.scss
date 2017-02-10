@@ -8,7 +8,7 @@
   display: block;
   margin: 0 auto;
   text-align: center;
-  background: rgba(204, 204, 204, 0.5);
+  background: rgba(204, 204, 204, 0.2);
   font: 100% $content-font;
   width: 100%;
   top: 0px;
@@ -35,15 +35,16 @@
       color: white;
   	}
   	&.nav_section{
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 100;
       margin: 0 20px;
+      color: white;
       &.router-link-active{
         // border-bottom:5px solid #2c3e50;
         // padding-bottom:10px;
         color: white;
-        font-size: 28px;
-        transition: all 0.2s ease;
+        font-size: 24px;
+        transition: all 0.4s ease;
       }
   	}
 
