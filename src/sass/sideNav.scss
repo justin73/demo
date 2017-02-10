@@ -69,8 +69,9 @@
         a{
           font-size: 14px;
           line-height: 72px;
+          padding-bottom: 10px;
           &.router-link-active{
-            // border-bottom:5px solid #2c3e50;
+            border-bottom:5px solid white;
             // padding-bottom:10px;
             color: white;
           }

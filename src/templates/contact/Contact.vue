@@ -8,7 +8,9 @@
     <imageOverlay v-bind:isReady="isReady" v-bind:imgList="eventList" v-bind:imgObj="imgObj"></imageOverlay>
     <!-- <transition name="fade"> -->
     <div class="img_container flex-item" v-for="event in eventList" v-on:click="viewImg">
-       <img class="img_item" v-bind:src='event.image_url' v-bind:imgId='event.id'>
+      <div class="img_item"  v-bind:imgId='event.id' :style="{ 'background-image': 'url(' + event.image_url + ')' }">
+        <!-- s<figure><img class="img_item" v-bind:src='event.image_url' v-bind:imgId='event.id'></figure> -->
+      </div>
     </div>
     <!-- </transition> -->
     <!-- <div class="grid">
@@ -156,7 +158,8 @@
   };
 </script>
 <style lang="sass">
-  // .content_container{ background: #abbaab; background: -webkit-linear-gradient(to bottom, #abbaab , #fff); background: linear-gradient(to bottom, #abbaab , #fff)}
+  // .content_container{ background: #bdc3c7;background: -webkit-linear-gradient(to left, #bdc3c7 , #2c3e50);background: linear-gradient(to bottom, #2c3e50, #bdc3c7 );}
+  .content_container{ background: #b31217;background: -webkit-linear-gradient(to bottom, #b31217, #e52d27); background: linear-gradient(to bottom, #b31217, #e52d27);}
 </style>
 <style lang="sass" scoped>
   // @import '../../libs/effects.min.css';
