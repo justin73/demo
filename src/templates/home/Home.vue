@@ -97,10 +97,6 @@
 <script>
   import Granim from 'granim';
 
-  // import Siema from 'siema';
-  // import Granim from 'granim';
-  // import { granimInstance } from '../../libs/background';
-
   export default {
     name: 'details',
     data: function data() {
