@@ -4,6 +4,7 @@
       <router-link class="domain_section" to="/" exact>{{ $t("nav.domain") }}</router-link>
     </div><div class="nav_wrapper">
       <!-- <router-link class="nav_section" to="/" exact>{{ $t("nav.index") }}</router-link> -->
+<<<<<<< HEAD
       <nav class="cl-effect-16" id="cl-effect-16">
         <router-link class="nav_section career" to="/career" v-bind:data-hover="$t('nav.projects')" exact>{{ $t("nav.projects") }}</router-link>
       </nav>
@@ -13,6 +14,11 @@
       <nav class="cl-effect-16" id="cl-effect-16">
         <router-link class="nav_section contact" to="/contact" data-hover="Contact" exact>Contact</router-link>
       </nav>
+=======
+      <router-link class="nav_section career" to="/career" exact>{{ $t("nav.projects") }}</router-link>
+      <router-link class="nav_section photo" to="/photography" exact>{{ $t("nav.photography") }}</router-link>
+      <router-link class="nav_section contact" to="/contact" exact>Contact</router-link>
+>>>>>>> origin/master
       <!-- <router-link class="nav_section" to="/events" exact>{{ $t("nav.projects") }}</router-link> -->
       <!-- <router-link class="nav_section" :to="{ path: 'services', query: { plan: 'private' }}" exact>{{ $t("nav.services") }}</router-link>
       <router-link class="nav_section" to="/clubs" exact>{{ $t("nav.clubs") }}</router-link>
