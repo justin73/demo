@@ -7,7 +7,7 @@
           <a class="link link--yaku" href="#">
             <span>M</span><span>e</span><span>n</span><span>g</span><span>(M</span><span>.E</span><span>n</span><span>g),&nbsp;</span><span>c'</span><span>e</span><span>s</span><span>t&nbsp;</span><span>m</span><span>o</span><span>i</span><span>!</span>
           </a>
-          <p class="self_desc">A Front-End Dev, a photographer, a volunteer, a dog person. Loving creating beautiful things</p>
+          <p class="self_desc">A Front-End Dev, a photographer, a volunteer and a dog person. Loving creating beautiful things</p>
         </div>
       </div>
       <div class="scroll_hint_container" >

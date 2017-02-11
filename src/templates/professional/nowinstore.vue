@@ -6,9 +6,9 @@
       </div> <!-- cd-timeline-img -->
 
       <div class="cd-timeline-content" >
-        <h2>Meet the MCM team </h2>
-        <p>My very first day as a Web Dev at mcm</p>
-        <span class="cd-date">Jan 2013</span>
+        <h2>First Day in the Startup World</h2>
+        <p>My first day as a professional developer, joined the Now In Store team. We were a small team, but we were very driven by what we believed in since day one when I got there. </p>
+        <span class="cd-date">June 2nd, 2014</span>
       </div> <!-- cd-timeline-content -->
     </div> <!-- cd-timeline-block -->
 
@@ -18,10 +18,9 @@
       </div> <!-- cd-timeline-img -->
 
       <div class="cd-timeline-content" >
-        <h2>First project --- the Compassion App</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
-        <a href="#0" class="cd-read-more">Read more</a>
-        <span class="cd-date">Sep 3rd, 2014</span>
+        <h2>Starting from the basis</h2>
+        <p>The first couple of days, I was trying to get my hands on the technologies used at NIS. Spending time to get to know the product, the tech stack. As a starter, I started working on templates using HTML, CSS, SASS, etc to render some static pages </p>
+        <span class="cd-date">June 2nd, 2014</span>
       </div> <!-- cd-timeline-content -->
     </div> <!-- cd-timeline-block -->
 
@@ -35,7 +34,7 @@
         </h2>
         <p>Front-End work, mainly using Backbone.js, jQuery to build user interface</p>
         <a href="#0" class="cd-read-more">Read more</a>
-        <span class="cd-date">Sep 3rd, 2014</span>
+        <span class="cd-date">Mid June, 2014</span>
       </div> <!-- cd-timeline-content -->
     </div> <!-- cd-timeline-block -->
 
