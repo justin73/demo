@@ -170,7 +170,7 @@
 </style>
 <style lang="sass" scoped>
   // @import '../../libs/effects.min.css';
-  @import '../../sass/contact.scss';
+  @import '../../sass/photography.scss';
   // @import '../../../../node_modules/aos/dist/aos.css';
 </style>
 

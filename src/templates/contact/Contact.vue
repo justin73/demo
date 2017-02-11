@@ -1,10 +1,15 @@
 
 <template>  
-  <div>
-    Coming Soon...
-    Meanwhile, if you'd like to contact me, please drop me an email at jiameng73@gmail.com
+  <div class='content_body'>
+    <div class="flex_container">
+      <h1>Coming Soon...</h1>
+    </div>
+    
+<!--     <div class="flex_container">
+      <p>Meanwhile, if you'd like to contact me, please drop me an email at jiameng73@gmail.com</p>
+    </div> -->
   </div>
-</template>
+</template>s
 <script>
   // import AOS from 'aos';
   // import Masonry from 'masonry-layout';
@@ -110,33 +115,10 @@
         this.loading = false;
       })
       .finally(function finish() {
-        // AOS.init({
-        //   offset: 200,
-        //   duration: 600,
-        //   easing: 'ease-in-sine',
-        //   delay: 100,
-        // });
-        // external js: masonry.pkgd.js, imagesloaded.pkgd.js
-
-        // init Masonry
-        // const grid = new Masonry('.grid', {
-        //   itemSelector: '.grid-item',
-        //   percentPosition: true,
-        //   columnWidth: '.grid-sizer',
-        // });
-        // console.log(grid);
-        // // layout Isotope after each image loads
-        // grid.imagesLoaded().progress(function doit() {
-        //   grid.masonry();
-        // });
       });
     },
   };
 </script>
-<style lang="sass">
-  // .content_container{ background: #bdc3c7;background: -webkit-linear-gradient(to left, #bdc3c7 , #2c3e50);background: linear-gradient(to bottom, #2c3e50, #bdc3c7 );}
-  .content_container{ background: #b31217;background: -webkit-linear-gradient(to bottom, #b31217, #e52d27); background: linear-gradient(to bottom, #b31217, #e52d27);}
-</style>
 <style lang="sass" scoped>
   // @import '../../libs/effects.min.css';
   @import '../../sass/contact.scss';
