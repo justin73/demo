@@ -253,6 +253,7 @@ header {
     color: white;
 	@include border-radius;
 	padding: 1em;
+	padding-bottom: 20px;
 	@include clearfix;
 
 	h2 {

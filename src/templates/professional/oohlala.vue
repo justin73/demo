@@ -58,7 +58,7 @@
         <span class="cd-date">Feb 2015</span>
       </div> <!-- cd-timeline-content -->
     </div> <!-- cd-timeline-block -->
-    <div class="cd-timeline-block" v-aos data-aos="fade-up-right">
+    <div class="cd-timeline-block" v-aos data-aos="fade-up-left">
       <div class="cd-timeline-img cd-movie oohlala">
         <!-- <img src="img/cd-icon-picture.svg" alt="Picture"> -->
       </div> <!-- cd-timeline-img -->
@@ -129,7 +129,7 @@
         <span class="cd-date">Jan 16th, 2017</span>
       </div>
     </div>
-    <div class="cd-timeline-block" v-aos data-aos="fade-up-right">
+    <div class="cd-timeline-block" v-aos data-aos="fade-up-left">
       <div class="cd-timeline-img cd-movie oohlala">
       </div>
       <div class="cd-timeline-content">
