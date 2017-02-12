@@ -4,14 +4,19 @@
       <canvas id="intro-image"></canvas>
       <div class="grid">
         <div class="grid__item">
-          <a class="link link--yaku" href="#">
+          <a class="link link--yaku" href="#" v-if="langCode === 'en'">
+            <span>M</span><span>e</span><span>n</span><span>g</span><span>(M</span><span>.E</span><span>n</span><span>g),&nbsp;</span><span>c'</span><span>e</span><span>s</span><span>t&nbsp;</span><span>m</span><span>o</span><span>i</span><span>!</span>
+          </a>
+          <a class="link link--yaku" href="#" v-if="langCode === '汉'">
+            <span>我</span><span>，</span><span>贾</span><span>梦</span><span>，</span><span>软</span><span>件</span><span>工</span><span>程</span><span>师</span><span>。</span>
+          </a>
+          <a class="link link--yaku" href="#" v-if="langCode === 'fr'">
             <span>M</span><span>e</span><span>n</span><span>g</span><span>(M</span><span>.E</span><span>n</span><span>g),&nbsp;</span><span>c'</span><span>e</span><span>s</span><span>t&nbsp;</span><span>m</span><span>o</span><span>i</span><span>!</span>
           </a>
           <p class="self_desc">{{ $t("intro.desc") }}</p>
         </div>
       </div>
       <div class="scroll_hint_container" >
-        <!-- <p> scroll down to see more</p> -->
         <i class="fa fa-angle-down" aria-hidden="true" v-on:click="viewMore"></i>
       </div>
 
@@ -98,15 +103,7 @@
     data: function data() {
       return {
         granimInstance: null,
-        // schoolName: '',
-        // description: '',
-        // checked: '',
-        // selected: [],
-        // hostList: [
-        //   { name: 'Depart A', id: 2 },
-        //   { name: 'Depart B', id: 3 },
-        //   { name: 'Depart C', id: 4 },
-        // ],
+        langCode: this.$store.state.langCode,
       };
     },
     methods: {
@@ -188,6 +185,9 @@
       .lettering()
       .children('span')
       .lettering();
+
+
+      console.log(this.langCode);
     },
     beforeDestroy() {
       $.fn.fullpage.destroy('all');
