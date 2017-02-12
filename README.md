@@ -1,6 +1,7 @@
-# demo
-
 > A Vue.js project
+
+My personal website
+
 
 ## Build Setup
 
