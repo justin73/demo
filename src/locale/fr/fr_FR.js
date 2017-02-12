@@ -7,6 +7,7 @@ const frFR = {
     clubs: 'Clubs  -fr',
     events: 'Events  -fr',
     feeds: 'Feeds  -fr',
+    contact: 'Contact -fr',
   },
 };
 

@@ -12,6 +12,7 @@ const store = new Vuex.Store({
     //   { id: 2, text: '...', done: false },
     // ],
     currentPage: 'Home',
+    langCode: 'en',
   },
   // getters: {
   //   doneTodos: function doneTodos(state) {
@@ -25,6 +26,10 @@ const store = new Vuex.Store({
     // increment(state, payload) {
     //   state.count += payload.amount;
     // },
+    changeLang(state, payload) {
+      state.langCode = payload.selectLang;
+      Vue.config.lang = state.langCode;
+    },
     changePage(state, payload) {
       state.currentPage = payload.currentPage;
     },

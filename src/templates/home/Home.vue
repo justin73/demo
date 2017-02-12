@@ -7,7 +7,7 @@
           <a class="link link--yaku" href="#">
             <span>M</span><span>e</span><span>n</span><span>g</span><span>(M</span><span>.E</span><span>n</span><span>g),&nbsp;</span><span>c'</span><span>e</span><span>s</span><span>t&nbsp;</span><span>m</span><span>o</span><span>i</span><span>!</span>
           </a>
-          <p class="self_desc">A Front-End Dev, a photographer, a volunteer and a dog person. Loving creating beautiful things</p>
+          <p class="self_desc">{{ $t("intro.desc") }}</p>
         </div>
       </div>
       <div class="scroll_hint_container" >
@@ -18,7 +18,7 @@
     </div>
     <div class="section">
       <canvas id="photography-image"></canvas>
-      <router-link to='/dashboard'><p class='txt_on_canvas link--kukuri'>Photography Portfolio</p></router-link>
+      <router-link to='/dashboard'><p class='txt_on_canvas link--kukuri'>{{ $t("photography.header") }}</p></router-link>
     </div>
    <!--  <div class="section split">
       <div class="box" id="box1">
@@ -83,7 +83,7 @@
         <div class="icon_container"><a href="https://www.instagram.com/mengjia73"><i class="fa fa-instagram" aria-hidden="true"></i></a></div>
         <div class="icon_container"><a mailto=""><i class="fa fa-envelope" aria-hidden="true"></i></i></a></div>
         <div class="footer">
-          <p>Created by Meng&nbsp;&nbsp;&nbsp;It is a Vue.js site&nbsp;&nbsp;&nbsp; Since 2017</p>
+          <p>{{ $t("footer.desc") }}</p>
         </div>
       </div>
     </div>

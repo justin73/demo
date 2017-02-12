@@ -10,8 +10,14 @@
         <router-link class="nav_section photo" to="/photography" v-bind:data-hover="$t('nav.photography')" exact v-on:click.native="addClickCount($t('nav.photography'))">{{ $t("nav.photography") }}</router-link>
       </nav>
       <nav class="cl-effect-16" id="cl-effect-16">
-        <router-link class="nav_section contact" to="/contact" data-hover="Contact" exact v-on:click.native="addClickCount">Contact</router-link>
+        <router-link class="nav_section contact" to="/contact" data-hover="$t('nav.contact')" exact v-on:click.native="addClickCount">{{ $t("nav.contact") }}</router-link>
       </nav>
+    </div><div class="localization">
+      <ul>
+        <li v-on:click="changeLang('en')"><div><span>EN</span></div></li>
+        <li v-on:click="changeLang('zh')"><div><span>汉</span></div></li>
+        <li v-on:click="changeLang('fr')"><div><span>FR</span></div></li>
+      </ul>
     </div>
   </div>
 </template>
@@ -31,6 +37,12 @@
           currentPage: page,
         });
         // this.$store.commit('changePage');
+      },
+      changeLang: function changeLang(lang) {
+        this.$store.commit({
+          type: 'changeLang',
+          selectLang: lang,
+        });
       },
     },
     mounted() {
