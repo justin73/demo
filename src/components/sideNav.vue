@@ -13,10 +13,10 @@
         <router-link class="nav_section contact" to="/contact" data-hover="$t('nav.contact')" exact v-on:click.native="addClickCount">{{ $t("nav.contact") }}</router-link>
       </nav>
     </div><div class="locale_wrapper">
-      <select id="lang_selector" class="cs-select cs-skin-elastic">
-        <option value="en" data-class="flag-france" selected v-on:click.native="changeLang('en')">EN</option>
-        <option value="zh" data-class="flag-brazil" v-on:click.native="changeLang('zh')">汉</option>
-        <option value="fr" data-class="flag-argentina" v-on:click.native="changeLang('fr')">FR</option>
+      <select id="lang_selector" class="cs-select cs-skin-elastic dropdownmenu">
+        <option value="en" selected v-on:click.native="changeLang('en')">EN</option>
+        <option value="zh" v-on:click.native="changeLang('zh')">汉</option>
+        <option value="fr" v-on:click.native="changeLang('fr')">FR</option>
       </select>
       <!-- <ul>
         <li v-on:click="changeLang('en')"><div><span>EN</span></div></li>
@@ -67,7 +67,7 @@
   };
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
   @import '../sass/sideNav.scss';
 </style>
  
