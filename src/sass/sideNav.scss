@@ -272,6 +272,7 @@ div.cs-skin-elastic {
   z-index: 100;
   line-height: 109px;
   padding: 0 2em;
+  padding: 0px;
   text-align: center;
 }
 
@@ -360,7 +361,8 @@ div.cs-skin-elastic {
   background-repeat: no-repeat;
   background-position: 1.5em 50%;
   background-size: 2em auto;
-  padding: 0.8em 1em 0.8em 4em;
+  padding: 0.8em 1em;
+  text-align: center;
 }
 
 .cs-skin-elastic .cs-options span:hover,
