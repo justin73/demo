@@ -32,6 +32,7 @@ module.exports = {
       'jquery': 'jquery/src/jquery',
       'masonry':'masonry-layout/masonry.js',
       'granim':'granim',
+      'selectfx': 'periodicjs.component.selectfx',
       'lettering':'letteringjs/jquery.lettering.js',
     }
   },
