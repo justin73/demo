@@ -14,16 +14,6 @@
         <!-- <p> scroll down to see more</p> -->
         <i class="fa fa-angle-down" aria-hidden="true" v-on:click="viewMore"></i>
       </div>
-      <!-- <div class="os-phrases" id="os-phrases">
-        <h2>Meng(M.Eng), C'est moi</h2>
-        <h2>Web Dev</h2>
-        <h2>Photographer</h2>
-        <h2>Scroll Down to see more</h2>
-        <h2>Scroll Down to see more</h2>
-        <h2>Scroll Down to see more</h2>
-        <h2>Scroll Down to see more</h2>
-        <h2>Scroll Down to see more</h2>
-      </div> -->
 
     </div>
     <div class="section">
@@ -104,11 +94,9 @@
   import Granim from 'granim';
 
   export default {
-    name: 'details',
+    name: 'home',
     data: function data() {
       return {
-        resourceUrl: 'https://api.500px.com/v1/photos?feature=user&username=MengJia&sort=times_viewed&rpp=5&image_size=4&include_store=store_download&include_states=voted&consumer_key=Sa25PtfFFd04mqZbdy7SJGHvhJdTF30JJkDBOf3M',
-        imgList: [],
         granimInstance: null,
         // schoolName: '',
         // description: '',
@@ -122,9 +110,9 @@
       };
     },
     methods: {
-      saveData: function save() {
-        console.log('save the model on button click');
-      },
+      // saveData: function save() {
+      //   console.log('save the model on button click');
+      // },
       viewMore: function viewMore() {
         $.fn.fullpage.moveSectionDown();
       },
@@ -149,7 +137,7 @@
         // lazyLoading: true,
         navigation: true,
         navigationPosition: 'right',
-        navigationTooltips: ['Moi', 'My Photography', 'My Professional Life', 'Contact Me'],
+        navigationTooltips: ['Moi', 'My Photography', 'Contact Me'],
         onLeave: function changeSection(index, nextIndex, direction) {
           if (direction === 'down') {
             $('.sidebar_container').fadeOut('slow');

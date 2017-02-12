@@ -33,6 +33,15 @@
     },
     methods: {
     },
+    beforeCreate() {
+      // const currentPage = this.$store.state.currentPage;
+      // console.log(currentPage);
+      // if (currentPage === 'Professional') {
+      //   $('.career').addClass('router-link-active');
+      // } else {
+      //   $('.career').removeClass('router-link-active');
+      // }
+    },
     mounted() {
       // this.company_name = this.$route.params.company_name;
       // console.log(this.company_name);

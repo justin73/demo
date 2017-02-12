@@ -10,12 +10,6 @@
       <div class="img_item"  v-bind:imgId='event.id' :style="{ 'background-image': 'url(' + event.image_url + ')' }">
       </div>
     </div>
-<!--     <div class="grid">
-      <div class="grid-sizer"></div>
-      <div class="grid-item mg_container flex-item" data-aos="zoom-in" v-for="event in eventList" v-on:click="viewImg">
-        <img class="img_item" v-bind:src='event.image_url' v-bind:imgId='event.id'>
-      </div>
-    </div> -->
     <div v-if="hasNextpage">
       <button class="next_page_btn btn btn-1 bttn-stretch bttn-md bttn-primary" v-if="showBtn" v-on:click='loadMore'>
         <svg>
@@ -23,12 +17,6 @@
         </svg>
         Load More
       </button> 
-<!--       <button class="next_page_btn bttn-stretch bttn-md bttn-primary" v-if="showBtn" v-on:click='loadMore'>
-        <svg>
-          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
-        </svg>
-        <p>Load More</p>
-      </button> -->
       <loader v-else ></loader>
     </div>
     <div v-else>
@@ -37,8 +25,6 @@
   </div>
 </template>
 <script>
-  // import AOS from 'aos';
-  // import Masonry from 'masonry-layout';
   import imageOverlay from '../../components/imgOverlay';
   import loader from '../../components/loader';
 

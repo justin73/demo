@@ -162,6 +162,8 @@
     },
     methods: {
     },
+    beforeCreate() {
+    },
     mounted() {
       // $('.sidebar_container').fadeIn('fast');
     },
