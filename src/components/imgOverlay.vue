@@ -16,7 +16,7 @@
             </div>
             <div class="setting_info">
               <div>
-                <p class="sub_title" v-on:click="toggleInfo"><i class="fa fa-camera-retro fa-2x"></i><span>Details</span><i class="more fa fa-angle-down" aria-hidden="true"></i></p>
+                <p class="sub_title" v-on:click="toggleInfo"><i class="fa fa-camera-retro fa-2x"></i><span>{{ $t("photography.details") }}</span><i class="more fa fa-angle-down" aria-hidden="true"></i></p>
               </div>
               <div v-if="imgObj.camera" class="camera_params" ref="camera_params">
                 <p class="main">{{imgObj.camera}}</p>
@@ -26,12 +26,12 @@
                 <p class="extra">{{imgObj.taken_At}}</p>
               </div>
               <div v-else>
-                <p class="main">Info Not Available</p>
+                <p class="main">{{ $t("photography.info_missing") }}</p>
               </div>
             </div>
             <div class="location_info">
               <div>
-                <p class="sub_title" v-on:click="toggleInfo"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i><span>Location</span><i class="more fa fa-angle-down" aria-hidden="true"></i></p>
+                <p class="sub_title" v-on:click="toggleInfo"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i><span>{{ $t("photography.location") }}</span><i class="more fa fa-angle-down" aria-hidden="true"></i></p>
               </div>
               <div class="location_params" ref="location_params">
                 <p>{{imgObj.latitude}}</p>

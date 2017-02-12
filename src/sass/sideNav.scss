@@ -34,26 +34,9 @@
     &.locale_wrapper{
       width: 10%;
       height: 109px;
-      // div.cs-select{
-      //   display: inline-block;
-      //   vertical-align: middle;
-      //   position: relative;
-      //   text-align: left;
-      //   // background: #fff;
-      //   z-index: 100;
-      //   width: 100%;
-      //   max-width: 500px;
-      //   -webkit-touch-callout: none;
-      //   -webkit-user-select: none;
-      //   -khtml-user-select: none;
-      //   -moz-user-select: none;
-      //   -ms-user-select: none;
-      //   user-select: none;
-      //   background: transparent;
-      //   font-size: 1.5em;
-      //   font-weight: 700;
-      //   color: white;
-      // }
+      .cs-skin-elastic > span {
+        line-height: 109px;
+      }
     }
   }
   a{
@@ -105,7 +88,14 @@
             color: white;
           }
         }
-
+      }
+      &.locale_wrapper{
+        font-size: 14px;
+        line-height: 72px;
+        padding-bottom: 10px;
+        .cs-skin-elastic > span {
+          line-height: 72px;
+        }
       }
     }
   }
@@ -270,7 +260,7 @@ div.cs-skin-elastic {
 .cs-skin-elastic > span {
   background-color: transparent;
   z-index: 100;
-  line-height: 109px;
+  // line-height: 109px;
   padding: 0 2em;
   padding: 0px;
   text-align: center;

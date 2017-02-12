@@ -15,12 +15,12 @@
         <svg>
           <rect x="0" y="0" fill="none" width="100%" height="100%"/>
         </svg>
-        Load More
+        {{ $t("photography.load") }}
       </button> 
       <loader v-else ></loader>
     </div>
     <div v-else>
-      <p>The END</p>
+      <p>{{ $t("photography.end") }}</p>
     </div>
   </div>
 </template>

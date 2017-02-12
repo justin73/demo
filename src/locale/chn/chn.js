@@ -12,6 +12,11 @@ const chn = {
   },
   photography: {
     header: '我的摄影集',
+    load: '更多',
+    end: '没了 :-)',
+    details: '详细信息',
+    info_missing: '信息无法查阅',
+    location: '拍摄地点',
   },
   footer: {
     desc: '所有权：贾梦，  Vue.js项目， 创建于2017',

@@ -15,6 +15,11 @@ const enUS = {
   },
   photography: {
     header: 'Photography Portfolio',
+    load: 'Load More',
+    end: 'The End',
+    details: 'Details',
+    info_missing: 'Info Not Available',
+    location: 'Location',
   },
   footer: {
     desc: 'Created by Meng    It is a Vue.js site    Since 2017',

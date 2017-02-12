@@ -15,6 +15,11 @@ const frFR = {
   },
   photography: {
     header: 'Portfolio de Photographies',
+    load: 'Plus de Photos',
+    end: 'Fin',
+    details: 'Des détails',
+    info_missing: 'Aucun détail',
+    location: 'L\'emplacement',
   },
   footer: {
     desc: 'Créé par Meng    C\'est un site de Vue.js    Depuis2017',

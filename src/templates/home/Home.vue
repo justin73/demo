@@ -23,7 +23,7 @@
     </div>
     <div class="section">
       <canvas id="photography-image"></canvas>
-      <router-link to='/dashboard'><p class='txt_on_canvas link--kukuri'>{{ $t("photography.header") }}</p></router-link>
+      <router-link to='/photography'><p class='txt_on_canvas link--kukuri'>{{ $t("photography.header") }}</p></router-link>
     </div>
    <!--  <div class="section split">
       <div class="box" id="box1">
