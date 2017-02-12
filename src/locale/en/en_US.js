@@ -22,7 +22,7 @@ const enUS = {
     location: 'Location',
   },
   footer: {
-    desc: 'Created by Meng    It is a Vue.js site    Since 2017',
+    desc: 'Created by Meng, \xa0\xa0\xa0   it is a Vue.js site,  \xa0\xa0\xa0 since 2017',
   },
 };
 

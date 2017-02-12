@@ -11,8 +11,6 @@
   </div>
 </template>s
 <script>
-  // import AOS from 'aos';
-  // import Masonry from 'masonry-layout';
   import imageOverlay from '../../components/imgOverlay';
   import loader from '../../components/loader';
 
@@ -120,8 +118,6 @@
   };
 </script>
 <style lang="sass" scoped>
-  // @import '../../libs/effects.min.css';
   @import '../../sass/contact.scss';
-  // @import '../../../../node_modules/aos/dist/aos.css';
 </style>
 

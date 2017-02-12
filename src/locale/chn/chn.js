@@ -19,7 +19,7 @@ const chn = {
     location: '拍摄地点',
   },
   footer: {
-    desc: '所有权：贾梦，  Vue.js项目， 创建于2017',
+    desc: '所有权：贾梦，\xa0\xa0\xa0  Vue.js项目，\xa0\xa0\xa0 创建于2017',
   },
 };
 

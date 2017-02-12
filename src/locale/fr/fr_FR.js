@@ -22,7 +22,7 @@ const frFR = {
     location: 'L\'emplacement',
   },
   footer: {
-    desc: 'Créé par Meng    C\'est un site de Vue.js    Depuis2017',
+    desc: 'Créé par Meng, \xa0\xa0\xa0  c\'est un site de Vue.js, \xa0\xa0\xa0   depuis 2017',
   },
 };
 
