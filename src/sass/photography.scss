@@ -16,12 +16,30 @@ body{
     display: flex;
     align-items: center;
 }
+.gallery_container{
+	width: 100%;
+	padding-top: 170px;
+	padding-bottom: 50px;
+	text-align:center;
+	ul{
+		list-style: none;
+		padding: 0px;
+		li{
+			display: inline-block;
+			margin: 0px 30px;
+			color: white;
+			&:hover{
+				cursor: pointer;
+			}
+		}
+	}
+}
 .list_container{
 	// box-sizing: content-box;
     padding: 40px 20px 0;
  //    width: calc(100% - 40px);
     margin: 0 auto 0px;
-    padding-top: 135px;
+    // padding-top: 135px;
     max-width: 935px;
     display: flex; /* or inline-flex */
     flex-direction: row;

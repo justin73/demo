@@ -4,7 +4,6 @@
     <div class="flex_container">
       <h1>Coming Soon...</h1>
     </div>
-    
 <!--     <div class="flex_container">
       <p>Meanwhile, if you'd like to contact me, please drop me an email at jiameng73@gmail.com</p>
     </div> -->

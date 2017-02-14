@@ -3,24 +3,30 @@
   <div v-if="loading" ref="loading" class="loading_container">
     <loader></loader>
   </div>
-
-  <div class="list_container flex-container" v-else >
-    <imageOverlay v-bind:isReady="isReady" v-bind:imgList="eventList" v-bind:imgObj="imgObj"></imageOverlay>
-    <div class="img_container flex-item" v-aos data-aos="fade-up-right" v-for="event in eventList" v-on:click="viewImg">
-      <div class="img_item"  v-bind:imgId='event.id' :style="{ 'background-image': 'url(' + event.image_url + ')' }">
+  <div v-else >
+    <div class="gallery_container">
+      <ul class="gallery_list">
+        <li class="gallery_item" v-for="gallery in galleryList" v-bind:gallery-id='gallery.id'>{{gallery.name}}</li>
+      </ul>
+    </div>
+    <div class="list_container flex-container" >
+      <imageOverlay v-bind:isReady="isReady" v-bind:imgList="eventList" v-bind:imgObj="imgObj"></imageOverlay>
+      <div class="img_container flex-item" v-aos data-aos="fade-up-right" v-for="event in eventList" v-on:click="viewImg">
+        <div class="img_item"  v-bind:imgId='event.id' :style="{ 'background-image': 'url(' + event.image_url + ')' }">
+        </div>
       </div>
-    </div>
-    <div v-if="hasNextpage">
-      <button class="next_page_btn btn btn-1 bttn-stretch bttn-md bttn-primary" v-if="showBtn" v-on:click='loadMore'>
-        <svg>
-          <rect x="0" y="0" fill="none" width="100%" height="100%"/>
-        </svg>
-        {{ $t("photography.load") }}
-      </button> 
-      <loader v-else ></loader>
-    </div>
-    <div v-else>
-      <p>{{ $t("photography.end") }}</p>
+      <div v-if="hasNextpage">
+        <button class="next_page_btn btn btn-1 bttn-stretch bttn-md bttn-primary" v-if="showBtn" v-on:click='loadMore'>
+          <svg>
+            <rect x="0" y="0" fill="none" width="100%" height="100%"/>
+          </svg>
+          {{ $t("photography.load") }}
+        </button> 
+        <loader v-else ></loader>
+      </div>
+      <div v-else>
+        <p>{{ $t("photography.end") }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -34,9 +40,12 @@
       return {
         loading: true,
         eventList: [],
+        galleryList: [],
         current_page: 1,
         next_page: 2,
         total_page: 0,
+        imgUrl: 'https://api.500px.com/v1/photos/192188265?image_size=4&comments=1&consumer_key=Sa25PtfFFd04mqZbdy7SJGHvhJdTF30JJkDBOf3M',
+        galleriesURl: 'https://api.500px.com/v1/users/15449761/galleries?consumer_key=Sa25PtfFFd04mqZbdy7SJGHvhJdTF30JJkDBOf3M',
         resourceUrl: 'https://api.500px.com/v1/photos?consumer_key=Sa25PtfFFd04mqZbdy7SJGHvhJdTF30JJkDBOf3M&feature=user&username=MengJia&sort=rating&image_size=4&rpp=18',
         hasNextpage: false,
         fetchingPics: false,
@@ -146,6 +155,13 @@
         // grid.imagesLoaded().progress(function doit() {
         //   grid.masonry();
         // });
+      });
+      this.$http.get(this.galleriesURl)
+      .then(function result(res) {
+        this.loading = false;
+        this.galleryList = res.body.galleries;
+      }).finally(function finish() {
+        console.log(this.galleryList);
       });
     },
   };
