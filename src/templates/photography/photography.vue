@@ -11,14 +11,14 @@
     </div>
     <div class="list_container flex-container" >
       <imageOverlay v-bind:isReady="isReady" v-bind:imgList="eventList" v-bind:imgObj="imgObj"></imageOverlay>
-      <transition-group name="list" tag="div" class="img_section">
-        <!-- <div class="img_section"> -->
+      <!-- <transition-group name="list" tag="div" class="img_section"> -->
+        <div class="img_section">
         <div class="img_container flex-item" v-aos data-aos="fade-up-right" name="photo" v-for="event in eventList" v-bind:key="event" v-on:click="viewImg">
           <div class="img_item"  v-bind:imgId='event.id' :style="{ 'background-image': 'url(' + event.image_url + ')' }">
           </div>
         </div>
-        <!-- </div> -->
-      </transition-group>
+        </div>
+      <!-- </transition-group> -->
       <div v-if="hasNextpage">
         <button class="next_page_btn btn btn-1 bttn-stretch bttn-md bttn-primary" v-if="showBtn" v-on:click='loadMore'>
           <svg>
@@ -120,6 +120,37 @@
           this.hasNextpage = false;
         }
       },
+      getPhotos: function getPhotos() {
+        // promise call to fetch photos
+        this.resourceUrl += `&page=${this.current_page}`;
+        this.$http
+        .get(this.resourceUrl)
+        .then(function result(res) {
+          this.eventList = res.body.photos;
+          this.total_pages = res.body.total_pages;
+          this.current_page = res.body.current_page;
+          this.next_page = this.current_page + 1;
+        }).then(function next() {
+          this.loading = false;
+          window.addEventListener('scroll', this.handleScroll);
+        })
+        .catch(function error() {
+          this.loading = false;
+        })
+        .finally(function finish() {
+          this.showPhotos(this.eventList);
+        });
+      },
+      getGalleries: function getGalleries() {
+        // promise to get gallery information
+        this.$http.get(this.galleriesURl)
+        .then(function result(res) {
+          this.loading = false;
+          this.galleryList = res.body.galleries;
+        }).finally(function finish() {
+          this.getPhotos();
+        });
+      },
       showPhotos: helpers.showPhotos,
     },
     beforeCreated() {
@@ -127,50 +158,7 @@
     },
     mounted() {
       $('.sidebar_container').fadeIn('fast');
-      this.resourceUrl += `&page=${this.current_page}`;
-      this.$http
-      .get(this.resourceUrl)
-      .then(function result(res) {
-        this.eventList = res.body.photos;
-        this.total_pages = res.body.total_pages;
-        this.current_page = res.body.current_page;
-        this.next_page = this.current_page + 1;
-      }).then(function next() {
-        this.loading = false;
-        window.addEventListener('scroll', this.handleScroll);
-      })
-      .catch(function error() {
-        this.loading = false;
-      })
-      .finally(function finish() {
-        // AOS.init({
-        //   offset: 200,
-        //   duration: 600,
-        //   easing: 'ease-in-sine',
-        //   delay: 100,
-        // });
-        // external js: masonry.pkgd.js, imagesloaded.pkgd.js
-
-        // init Masonry
-        // const grid = new Masonry('.grid', {
-        //   itemSelector: '.grid-item',
-        //   percentPosition: true,
-        //   columnWidth: '.grid-sizer',
-        // });
-        // console.log(grid);
-        // // layout Isotope after each image loads
-        // grid.imagesLoaded().progress(function doit() {
-        //   grid.masonry();
-        // });
-        this.showPhotos(this.eventList);
-      });
-      this.$http.get(this.galleriesURl)
-      .then(function result(res) {
-        this.loading = false;
-        this.galleryList = res.body.galleries;
-      }).finally(function finish() {
-        console.log(this.galleryList);
-      });
+      this.getGalleries();
     },
   };
 </script>
