@@ -11,10 +11,14 @@
     </div>
     <div class="list_container flex-container" >
       <imageOverlay v-bind:isReady="isReady" v-bind:imgList="eventList" v-bind:imgObj="imgObj"></imageOverlay>
-      <div class="img_container flex-item" v-aos data-aos="fade-up-right" v-for="event in eventList" v-on:click="viewImg">
-        <div class="img_item"  v-bind:imgId='event.id' :style="{ 'background-image': 'url(' + event.image_url + ')' }">
+      <transition-group name="list" tag="div" class="img_section">
+        <!-- <div class="img_section"> -->
+        <div class="img_container flex-item" v-aos data-aos="fade-up-right" name="photo" v-for="event in eventList" v-bind:key="event" v-on:click="viewImg">
+          <div class="img_item"  v-bind:imgId='event.id' :style="{ 'background-image': 'url(' + event.image_url + ')' }">
+          </div>
         </div>
-      </div>
+        <!-- </div> -->
+      </transition-group>
       <div v-if="hasNextpage">
         <button class="next_page_btn btn btn-1 bttn-stretch bttn-md bttn-primary" v-if="showBtn" v-on:click='loadMore'>
           <svg>
@@ -33,6 +37,8 @@
 <script>
   import imageOverlay from '../../components/imgOverlay';
   import loader from '../../components/loader';
+
+  import helpers from '../../help';
 
   export default {
     name: 'details',
@@ -114,6 +120,7 @@
           this.hasNextpage = false;
         }
       },
+      showPhotos: helpers.showPhotos,
     },
     beforeCreated() {
       // const AOS = new AOS();
@@ -155,6 +162,7 @@
         // grid.imagesLoaded().progress(function doit() {
         //   grid.masonry();
         // });
+        this.showPhotos(this.eventList);
       });
       this.$http.get(this.galleriesURl)
       .then(function result(res) {

@@ -17,6 +17,7 @@
   "dependencies": {
     "animate.css": "^3.5.2",
     "aos": "^2.1.1",
+    "bootstrap": "^4.0.0-alpha.6",
     "bourbon": "^4.3.0",
     "fullpage": "^1.4.2",
     "fullpage.js": "^2.9.2",
