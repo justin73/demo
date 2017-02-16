@@ -6,18 +6,18 @@
   <div v-else >
     <div class="gallery_container">
       <ul class="gallery_list">
-        <li class="gallery_item" v-for="gallery in galleryList" v-bind:gallery-id='gallery.id'>{{gallery.name}}</li>
+        <li class="gallery_item" v-for="gallery in galleryList" v-bind:gallery-id='gallery.id' v-on:click="changeGallery">{{gallery.name}}</li>
       </ul>
     </div>
     <div class="list_container flex-container" >
       <imageOverlay v-bind:isReady="isReady" v-bind:imgList="eventList" v-bind:imgObj="imgObj"></imageOverlay>
       <!-- <transition-group name="list" tag="div" class="img_section"> -->
-        <div class="img_section">
-        <div class="img_container flex-item" v-aos data-aos="fade-up-right" name="photo" v-for="event in eventList" v-bind:key="event" v-on:click="viewImg">
+      <div class="img_section">
+        <div class="img_container flex-item" name="photo" v-for="event in eventList" v-bind:key="event" v-on:click="viewImg">
           <div class="img_item"  v-bind:imgId='event.id' :style="{ 'background-image': 'url(' + event.image_url + ')' }">
           </div>
         </div>
-        </div>
+      </div>
       <!-- </transition-group> -->
       <div v-if="hasNextpage">
         <button class="next_page_btn btn btn-1 bttn-stretch bttn-md bttn-primary" v-if="showBtn" v-on:click='loadMore'>
@@ -37,22 +37,24 @@
 <script>
   import imageOverlay from '../../components/imgOverlay';
   import loader from '../../components/loader';
-
   import helpers from '../../help';
 
   export default {
     name: 'details',
     data: function data() {
       return {
+        consumerKey: '&consumer_key=Sa25PtfFFd04mqZbdy7SJGHvhJdTF30JJkDBOf3M',
+        imgSettings: '&sort=times_viewed&rpp=18&image_size=4&include_store=store_download&include_states=voted',
         loading: true,
         eventList: [],
         galleryList: [],
         current_page: 1,
         next_page: 2,
         total_page: 0,
-        imgUrl: 'https://api.500px.com/v1/photos/192188265?image_size=4&comments=1&consumer_key=Sa25PtfFFd04mqZbdy7SJGHvhJdTF30JJkDBOf3M',
-        galleriesURl: 'https://api.500px.com/v1/users/15449761/galleries?consumer_key=Sa25PtfFFd04mqZbdy7SJGHvhJdTF30JJkDBOf3M',
-        resourceUrl: 'https://api.500px.com/v1/photos?consumer_key=Sa25PtfFFd04mqZbdy7SJGHvhJdTF30JJkDBOf3M&feature=user&username=MengJia&sort=rating&image_size=4&rpp=18',
+        imgUrl: 'https://api.500px.com/v1/photos/192188265?image_size=4&comments=1',
+        galleriesURl: 'https://api.500px.com/v1/users/15449761/galleries?',
+        resourceUrl: 'https://api.500px.com/v1/photos?feature=user&username=MengJia',
+        galleryURL: 'https://api.500px.com/v1/users/15449761/galleries/',
         hasNextpage: false,
         fetchingPics: false,
         showBtn: true,
@@ -60,6 +62,20 @@
         imgId: 0,
         isReady: false,
       };
+    },
+    computed: {
+      imgFetchUrl: function imgFetchUrl() {
+        this.imgUrl += this.consumerKey;
+        return this.imgUrl;
+      },
+      galleriesFetchUrl: function galleryFetchUrl() {
+        this.galleriesURl += this.consumerKey;
+        return this.galleriesURl;
+      },
+      allPhotosFetchUrl: function allPhotosFetchUrl() {
+        this.resourceUrl += this.consumerKey + this.imgSettings;
+        return this.resourceUrl;
+      },
     },
     components: {
       loader,
@@ -75,6 +91,22 @@
             this.isReady = true;
           }
         }
+      },
+      changeGallery: function changeGallery(event) {
+        this.galleryURL += $(event.target).attr('gallery-id');
+        this.galleryURL = `${this.galleryURL}/items?${this.consumerKey}+${this.imgSettings}`;
+        this.loading = true;
+        this.$http
+        .get(this.galleryURL)
+        .then(function result(res) {
+          this.eventList = res.body.photos;
+        }).catch(function error() {
+          this.hasNextpage = false;
+        }).finally(function finish() {
+          this.hasNextpage = false;
+          this.next_page += 1;
+          this.loading = false;
+        });
       },
       // scroll to the bottom, then add page_num, load the next page, until get to the last page.
       handleScroll: function handleScroll() {
@@ -105,9 +137,9 @@
         this.showBtn = false;
         if (this.next_page <= this.total_pages) {
           this.hasNextpage = true;
-          this.resourceUrl += `&page=${this.next_page}`;
+          this.allPhotosFetchUrl += `&page=${this.next_page}`;
           this.$http
-          .get(this.resourceUrl)
+          .get(this.allPhotosFetchUrl)
           .then(function result(res) {
             this.eventList = this.eventList.concat(res.body.photos);
           }).catch(function error() {
@@ -124,7 +156,7 @@
         // promise call to fetch photos
         this.resourceUrl += `&page=${this.current_page}`;
         this.$http
-        .get(this.resourceUrl)
+        .get(this.allPhotosFetchUrl)
         .then(function result(res) {
           this.eventList = res.body.photos;
           this.total_pages = res.body.total_pages;
@@ -138,17 +170,17 @@
           this.loading = false;
         })
         .finally(function finish() {
-          this.showPhotos(this.eventList);
+          // this.showPhotos(this.eventList);
         });
       },
       getGalleries: function getGalleries() {
         // promise to get gallery information
-        this.$http.get(this.galleriesURl)
+        this.$http.get(this.galleriesFetchUrl)
         .then(function result(res) {
-          this.loading = false;
+          // this.loading = false;
           this.galleryList = res.body.galleries;
         }).finally(function finish() {
-          this.getPhotos();
+          // this.getPhotos();
         });
       },
       showPhotos: helpers.showPhotos,
@@ -159,6 +191,7 @@
     mounted() {
       $('.sidebar_container').fadeIn('fast');
       this.getGalleries();
+      this.getPhotos();
     },
   };
 </script>
