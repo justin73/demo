@@ -3,23 +3,23 @@
   <div v-if="loading" ref="loading" class="loading_container">
     <loader></loader>
   </div>
-  <div v-else >
-    <div class="gallery_container">
+  <div v-else class='pure-g'>
+    <div class="gallery_container pure-u-1 pure-g">
       <ul class="gallery_list">
         <li class="gallery_item" v-for="gallery in galleryList" v-bind:gallery-id='gallery.id' v-on:click="changeGallery">{{gallery.name}}</li>
       </ul>
     </div>
-    <div class="list_container flex-container" >
+    <div class="list_container flex-container pure-u-1 pure-g" >
       <imageOverlay v-bind:isReady="isReady" v-bind:imgList="eventList" v-bind:imgObj="imgObj"></imageOverlay>
       <!-- <transition-group name="list" tag="div" class="img_section"> -->
-      <div class="img_section">
-        <div class="img_container flex-item" name="photo" v-for="event in eventList" v-bind:key="event" v-on:click="viewImg">
-          <div class="img_item"  v-bind:imgId='event.id' :style="{ 'background-image': 'url(' + event.image_url + ')' }">
+      <div class="img_section pure-u-1 pure-g">
+        <div class="img_container flex-item pure-u-sm-1 pure-u-md-1-2 pure-u-lg-1-3 pure-u-xl-1-4" name="photo" v-for="event in eventList" v-bind:key="event" v-on:click="viewImg" style="height: auto;min-height: 250px;">
+          <div class="img_item pure-img"  v-bind:imgId='event.id' :style="{ 'background-image': 'url(' + event.image_url + ')' }">
           </div>
         </div>
       </div>
       <!-- </transition-group> -->
-      <div v-if="hasNextpage">
+      <div v-if="hasNextpage" class='pure-u-1'>
         <button class="next_page_btn btn btn-1 bttn-stretch bttn-md bttn-primary" v-if="showBtn" v-on:click='loadMore'>
           <svg>
             <rect x="0" y="0" fill="none" width="100%" height="100%"/>
@@ -28,8 +28,8 @@
         </button> 
         <loader v-else ></loader>
       </div>
-      <div v-else>
-        <p>{{ $t("photography.end") }}</p>
+      <div class='end_container pure-u-1' v-else>
+        <p class="end_text">{{ $t("photography.end") }}</p>
       </div>
     </div>
   </div>
@@ -44,7 +44,7 @@
     data: function data() {
       return {
         consumerKey: '&consumer_key=Sa25PtfFFd04mqZbdy7SJGHvhJdTF30JJkDBOf3M',
-        imgSettings: '&sort=times_viewed&rpp=18&image_size=4&include_store=store_download&include_states=voted',
+        imgSettings: '&sort=times_viewed&rpp=24&image_size=4&include_store=store_download&include_states=voted',
         loading: true,
         eventList: [],
         galleryList: [],
@@ -54,7 +54,7 @@
         imgUrl: 'https://api.500px.com/v1/photos/192188265?image_size=4&comments=1',
         galleriesURl: 'https://api.500px.com/v1/users/15449761/galleries?',
         resourceUrl: 'https://api.500px.com/v1/photos?feature=user&username=MengJia',
-        galleryURL: 'https://api.500px.com/v1/users/15449761/galleries/',
+        galleryURLPrefix: 'https://api.500px.com/v1/users/15449761/galleries/',
         hasNextpage: false,
         fetchingPics: false,
         showBtn: true,
@@ -93,11 +93,13 @@
         }
       },
       changeGallery: function changeGallery(event) {
-        this.galleryURL += $(event.target).attr('gallery-id');
-        this.galleryURL = `${this.galleryURL}/items?${this.consumerKey}+${this.imgSettings}`;
+        let galleryURL = this.galleryURLPrefix;
+        galleryURL += $(event.target).attr('gallery-id');
+        galleryURL = `${galleryURL}/items?${this.consumerKey}+${this.imgSettings}`;
+        console.log(galleryURL);
         this.loading = true;
         this.$http
-        .get(this.galleryURL)
+        .get(galleryURL)
         .then(function result(res) {
           this.eventList = res.body.photos;
         }).catch(function error() {
@@ -203,5 +205,6 @@
   // @import '../../libs/effects.min.css';
   @import '../../sass/photography.scss';
   // @import '../../../../node_modules/aos/dist/aos.css';
+  @import  "../../../node_modules/purecss/build/pure-min.css";
 </style>
 

@@ -42,7 +42,7 @@ new Vue({
     <div class='sidebar_container' style="width: 100%;top: 0px;z-index: 100;position: fixed">
       <sidebar></sidebar>
     </div>
-    <div class="content_container">
+    <div class="content_container" style="min-height:100vh;">
       <router-view></router-view>
     </div>
   </div>

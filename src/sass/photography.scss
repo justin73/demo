@@ -18,16 +18,17 @@ body{
 }
 .gallery_container{
 	width: 100%;
-	padding-top: 170px;
-	padding-bottom: 50px;
+	padding-top: 120px;
 	text-align:center;
 	ul{
 		list-style: none;
-		padding: 0px;
+		padding: 30px;
 		li{
 			display: inline-block;
 			margin: 0px 30px;
 			color: white;
+			font: $content-font;
+			font-weight: 100;
 			&:hover{
 				cursor: pointer;
 			}
@@ -35,50 +36,28 @@ body{
 	}
 }
 .list_container{
-	// box-sizing: content-box;
-    padding: 40px 20px 0;
- //    width: calc(100% - 40px);
-    margin: 0 auto 0px;
-    // padding-top: 135px;
-    max-width: 935px;
-    display: flex; /* or inline-flex */
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-  	/* Then we define how is distributed the remaining space */
-  	justify-content: space-around;
-    .img_section{
-    	width: 100%;
-    	.img_container{
-			position: relative;
-			text-align: center;
-			display: inline-block;
-			height: 250px;
-			margin: 5px;
-		    flex-grow: 1;
-		    width: calc(100% * (1/3) - 10px - 1px);
-
-			.img_item{
-				width: 100%;
-			    height: 250px;
-			    // display effect
-			    -webkit-filter: grayscale(150%) blur(1px);
-				filter: grayscale(150%) blur(1px);
-				background-size: cover;
-			    background-repeat: no-repeat;
-			    background-position-x: 50%;
-			    position: absolute;
-			    right: 0;
-			    bottom: 0;
-	    		display: block;
-				&:hover{
-					-webkit-filter: brightness(100%);
-					cursor: pointer;
-				}
+	.img_container{
+		height: auto;
+		min-height: 250px;
+		.img_item{
+			height: auto;
+			min-height: 250px;
+			background-size: cover;
+			background-position: 20%;
+			background-repeat: no-repeat;    
+			margin: 1px;vertical-align: top;
+		    -webkit-filter: grayscale(150%) blur(1px);
+			filter: grayscale(150%) blur(1px);
+			background-size: cover;
+		    background-repeat: no-repeat;
+		    background-position-x: 50%;
+			display: block;
+			&:hover{
+				-webkit-filter: brightness(100%);
+				cursor: pointer;
 			}
 		}
-    }
-	
+	}
 	.next_page_btn{
 		color: #fff;
 		cursor: pointer;
@@ -96,6 +75,7 @@ body{
 		background: none;
 		font-weight: 100;
   		outline: none;
+  		font-family: $content-font;
 		svg {
 			height: 45px;
 			left: 0;
@@ -123,7 +103,117 @@ body{
 		  }
 		}
 	}
+	.end_container{
+		.end_text{
+			color: white;
+		    padding: 50px;
+		    font-size: 16px;
+		    font-weight: 600;
+		    font-family: $content-font;
+		}
+	}
+	
 }
+// .list_container{
+// 	// box-sizing: content-box;
+//     padding: 40px 20px 0;
+//  //    width: calc(100% - 40px);
+//     margin: 0 auto 0px;
+//     // padding-top: 135px;
+//     max-width: 935px;
+//     display: flex; /* or inline-flex */
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     flex-flow: row wrap;
+//   	/* Then we define how is distributed the remaining space */
+//   	justify-content: space-around;
+//     .img_section{
+//     	width: 100%;
+//     	.img_container{
+// 			position: relative;
+// 			text-align: center;
+// 			display: inline-block;
+// 			height: 250px;
+// 			margin: 5px;
+// 		    flex-grow: 1;
+// 		    width: calc(100% * (1/3) - 10px - 1px);
+
+// 			.img_item{
+// 				width: 100%;
+// 			    height: 250px;
+// 			    // display effect
+// 			    -webkit-filter: grayscale(150%) blur(1px);
+// 				filter: grayscale(150%) blur(1px);
+// 				background-size: cover;
+// 			    background-repeat: no-repeat;
+// 			    background-position-x: 50%;
+// 			    position: absolute;
+// 			    right: 0;
+// 			    bottom: 0;
+// 	    		display: block;
+// 				&:hover{
+// 					-webkit-filter: brightness(100%);
+// 					cursor: pointer;
+// 				}
+// 			}
+// 		}
+//     }
+	
+// 	.next_page_btn{
+// 		color: #fff;
+// 		cursor: pointer;
+// 		display: block;
+// 		font-size:16px;
+// 		font-weight: 400;
+// 		line-height: 45px;
+// 		margin: 60px auto 2em; 
+// 		position: relative;
+// 		text-decoration: none;
+// 		text-transform: uppercase;
+// 		vertical-align: middle;
+// 		width: 100%; 
+// 		border: none;
+// 		background: none;
+// 		font-weight: 100;
+//   		outline: none;
+//   		font-family: $content-font;
+// 		svg {
+// 			height: 45px;
+// 			left: 0;
+// 			position: absolute;
+// 			top: 0; 
+// 			width: 100%; 
+// 		}
+
+// 		rect {
+// 			fill: none;
+// 			stroke: #fff;
+// 			stroke-width: 2;
+// 			stroke-dasharray: 422, 0;
+// 		}
+
+// 		&:hover {
+// 		  font-weight: 900;
+// 		  letter-spacing: 1px;
+		  
+// 		  rect {
+// 		    stroke-width: 5;
+// 		    stroke-dasharray: 15, 260;
+// 		    stroke-dashoffset: 48;
+// 		    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+// 		  }
+// 		}
+// 	}
+// 	.end_container{
+// 		.end_text{
+// 			color: white;
+// 		    padding: 50px;
+// 		    font-size: 16px;
+// 		    font-weight: 600;
+// 		    font-family: $content-font;
+// 		}
+// 	}
+// }
 
 .grid {
   background: #DDD;

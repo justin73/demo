@@ -34,6 +34,10 @@
                 <p class="sub_title" v-on:click="toggleInfo"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i><span>{{ $t("photography.location") }}</span><i class="more fa fa-angle-down" aria-hidden="true"></i></p>
               </div>
               <div class="location_params" ref="location_params">
+<!--                 <map style="height:200px;width:200px;display:block;" :center="center" :zoom="7">
+                  <marker v-for="m in markers" :position.sync="m.position" :clickable="true" :draggable="true" @g-click="center=m.center">
+                  </marker>
+                </map> -->
                 <p>{{imgObj.latitude}}</p>
                 <p>{{imgObj.longitude}}</p>
               </div>
@@ -46,6 +50,10 @@
 </template>
 
 <script>
+  import { load, Map, Marker } from 'vue-google-maps';
+  
+  load('AIzaSyB6y5W5quUzkpgcr11mMn3AxwhVvYzsrkQ');
+
   export default {
     name: 'imgOverlay',
     props: ['isReady', 'imgList', 'imgObj'],
@@ -53,7 +61,29 @@
       return {
         imgInfo: '',
         // info_available: true;
+        // google map api key : AIzaSyBN-7CwGHIRPs4yfpSN1-2NwLMk9z7UcRU
+        center: { lat: 0, lng: 0 },
+        // center: { lat: this.imgObj.latitude, lng: this.imgObj.longitude },
+        markers: [{
+          position: { lat: 0, lng: 0 },
+        }],
       };
+    },
+    computed: {
+      updateCenter: function updateCenter() {
+        this.center.lat = this.imgObj.latitude;
+        this.center.lng = this.imgObj.longitude;
+        return this.center;
+      },
+      updateMarkers: function updateMarkers() {
+        this.markers[0].position.lat = this.imgObj.latitude;
+        this.markers[0].position.lng = this.imgObj.longitude;
+        return this.center;
+      },
+    },
+    component: {
+      Map,
+      Marker,
     },
     methods: {
       closeOverlay: function close() {
@@ -71,6 +101,17 @@
           $(this).next($(event.target).parent().next().slideToggle('fast'));
         }
       },
+      // initMap: function initMap() {
+      //   const uluru = { lat: -25.363, lng: 131.044 };
+      //   const map = new google.maps.Map( $('#map'), {
+      //     zoom: 4,
+      //     center: uluru
+      //   });
+      //   const marker = new google.maps.Marker({
+      //     position: uluru,
+      //     map: map
+      //   });
+      // },
     },
     ready() {
       // this.imgObj
@@ -82,4 +123,5 @@
 
 <style lang="sass" scoped>
   @import '../sass/overlay.scss';
+  #map { width: 100%; height: 400px; background-color: grey; }
 </style>
